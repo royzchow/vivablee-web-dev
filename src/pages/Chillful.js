@@ -45,6 +45,12 @@ const ChillfulBannerText2 = styled.p`
   font-size: 42px;
   margin-top:10px;
   transition: all 0.5s;
+  max-width:700px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   @media only screen and (max-width: 800px) {
     font-size: 36px;
   }
