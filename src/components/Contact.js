@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../app.css";
 import { db } from "../firebase";
 
 const Contact = () => {
