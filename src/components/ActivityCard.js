@@ -17,7 +17,6 @@ async function activityCard_mouseOver(id,activity_id){
   $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_btn" ).css("display", "block");
   await sleep(300);
   if($("#activityCard_"+id+"_"+activity_id+":hover").length > 0){
-    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("display", "block");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("opacity", "1");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("height", "auto");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("visibility", "visible");
@@ -120,14 +119,17 @@ async function activityCard_mouseOut(id,activity_id){
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     min-height:2.2em;
+    margin-bottom:5px;
   `;
   const ActivityCardBottomText3 = styled.p`
     margin-top:3px;
     font-size:14px;
     text-transform: capitalize;
+    margin-bottom:0px;
+    font-weight:700;
   `;
   const ActivityCardBottomDescription = styled.p`
-    margin-top: 5px;
+    margin-top:3px;
     font-size:14px;
     line-height:16px;
     overflow: hidden;
@@ -135,7 +137,9 @@ async function activityCard_mouseOut(id,activity_id){
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    display:none;
+    opacity: 0;
+    height: 0px;
+    visibility: hidden;
   `;
   const ActivityCardBottomPrice = styled.p`
     display:none;
