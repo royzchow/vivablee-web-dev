@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.css";
 import Contact from "./components/Contact";
 import Home from "./pages/Home";
 import Chillful from "./pages/Chillful";

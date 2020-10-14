@@ -379,7 +379,6 @@ const ChillfulActivityListStyle2ContainerDiv2 = styled.div`
   }
 `;
 const ChillfulActivityListStyle2TdLong = styled.td`
-  display:inline-block;
   @media only screen and (max-width: 1200px) {
     display:none;
   }
@@ -591,14 +590,9 @@ function Chillful() {
         const data = doc.data()
         setChillfulActivityTitle(data['title']);
         setChillfulActivityDescription(data['description']);
-        chillfulActivityCategoryId = data['categoryId'];
-        db.collection("chillfulActivityCategories").doc(chillfulActivityCategoryId)
-          .get()
-          .then( doc => {
-            const data = doc.data()
-            setChillfulActivityCategory(data['category']);
-            setChillfulActivitySubCategory(data['subCategory']);
-          })
+        setChillfulActivityCategory(data['category']);
+        setChillfulActivitySubCategory(data['subCategory']);
+
       })
 
   }, []);

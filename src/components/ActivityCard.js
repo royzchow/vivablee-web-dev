@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import img from '../images/chillful/event_1.jpg';
 import { db } from "../firebase";
 
 // define js function
@@ -12,14 +11,17 @@ function sleep(ms) {
 }
 async function activityCard_mouseOver(id,activity_id){
   $("#activityCard_"+id+"_"+activity_id).css("marginRight", "70px");
-  $("#activityCard_"+id+"_"+activity_id).css("marginTop", "-60px");
-  $("#activityCard_"+id+"_"+activity_id).find( ".bottomContainer").css("height", "210px");
+  $("#activityCard_"+id+"_"+activity_id).css("marginTop", "-80px");
+  $("#activityCard_"+id+"_"+activity_id).find( ".bottomContainer").css("height", "230px");
   $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_btn" ).css("display", "block");
   await sleep(300);
   if($("#activityCard_"+id+"_"+activity_id+":hover").length > 0){
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("opacity", "1");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("height", "auto");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("visibility", "visible");
+    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_price" ).css("opacity", "1");
+    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_price" ).css("height", "auto");
+    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_price" ).css("visibility", "visible");
   }
 }
 
@@ -32,6 +34,9 @@ async function activityCard_mouseOut(id,activity_id){
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("opacity", "0");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("height", "0px");
     $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_description" ).css("visibility", "hidden");
+    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_price" ).css("opacity", "0");
+    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_price" ).css("height", "0px");
+    $("#activityCard_"+id+"_"+activity_id).find( ".activity_card_price" ).css("visibility", "hidden");
   }
 }
 
@@ -68,7 +73,6 @@ async function activityCard_mouseOut(id,activity_id){
     left: 0;
     bottom: 0;
     right: 0;
-    background-image: url(${img});
   `;
   const ActivityCardBottomContainer = styled.div`
     transition: height 0.5s;
@@ -140,9 +144,15 @@ async function activityCard_mouseOut(id,activity_id){
     opacity: 0;
     height: 0px;
     visibility: hidden;
+    color:#555;
   `;
   const ActivityCardBottomPrice = styled.p`
-    display:none;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0;
+    height: 0px;
+    visibility: hidden;
   `;
 
 function ActivityCard({id,activity_id}) {
@@ -152,6 +162,10 @@ function ActivityCard({id,activity_id}) {
     const [chillfulActivityDescription, setChillfulActivityDescription] = useState("");
     const [chillfulActivityCategory, setChillfulActivityCategory] = useState("");
     const [chillfulActivitySubCategory, setChillfulActivitySubCategory] = useState("");
+    const [chillfulActivityImageSmall1, setChillfulActivityImageSmall1] = useState("");
+    const [chillfulActivityImageLarge1, setChillfulActivityImageLarge1] = useState("");
+    const [chillfulActivityCurrency, setChillfulActivityCurrency] = useState("");
+    const [chillfulActivityPrice, setChillfulActivityPrice] = useState("");
 
     var chillfulActivityCategoryId = "";
 
@@ -164,14 +178,12 @@ function ActivityCard({id,activity_id}) {
           const data = doc.data()
           setChillfulActivityTitle(data['title']);
           setChillfulActivityDescription(data['description']);
-          chillfulActivityCategoryId = data['categoryId'];
-          db.collection("chillfulActivityCategories").doc(chillfulActivityCategoryId)
-            .get()
-            .then( doc => {
-              const data = doc.data()
-              setChillfulActivityCategory(data['category']);
-              setChillfulActivitySubCategory(data['subCategory']);
-            })
+          setChillfulActivityCategory(data['category']);
+          setChillfulActivitySubCategory(data['subCategory']);
+          setChillfulActivityImageSmall1(data['imageSmall1']);
+          setChillfulActivityImageLarge1(data['imageLarge1']);
+          setChillfulActivityCurrency(data['currency']);
+          setChillfulActivityPrice(data['price']);
         })
 
     }, []);
@@ -185,7 +197,7 @@ function ActivityCard({id,activity_id}) {
       <ActivityCard2 id={"activityCard_"+id+"_"+activity_id} onMouseOver={()=>activityCard_mouseOver(id,activity_id)} onMouseOut={()=>activityCard_mouseOut(id,activity_id)}>
 
         <ActivityCardContainer>
-          <ActivityCardImageCover></ActivityCardImageCover>
+          <ActivityCardImageCover style={{backgroundImage: "url(" + chillfulActivityImageSmall1 + ")"}}></ActivityCardImageCover>
         </ActivityCardContainer>
         <ActivityCardBottomContainer className="bottomContainer">
           <ActivityCardBtn className="activity_card_btn">
@@ -197,7 +209,7 @@ function ActivityCard({id,activity_id}) {
           <ActivityCardBottomText2>{ chillfulActivityTitle }</ActivityCardBottomText2>
           <ActivityCardBottomText3>{ chillfulActivitySubCategory } ● 12 hours</ActivityCardBottomText3>
           <ActivityCardBottomDescription className="activity_card_description">{ chillfulActivityDescription }</ActivityCardBottomDescription>
-          <ActivityCardBottomPrice>From HKD120 / person</ActivityCardBottomPrice>
+          <ActivityCardBottomPrice className="activity_card_price">From { chillfulActivityCurrency } { chillfulActivityPrice } / person</ActivityCardBottomPrice>
         </ActivityCardBottomContainer>
 
       </ActivityCard2>
