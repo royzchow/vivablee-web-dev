@@ -140,6 +140,7 @@ async function activityCard_mouseOut(id,activity_id){
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    min-height:3.3em;
     -webkit-box-orient: vertical;
     opacity: 0;
     height: 0px;
@@ -157,13 +158,12 @@ async function activityCard_mouseOut(id,activity_id){
 
 function ActivityCard({id,activity_id}) {
 
-
     const [chillfulActivityTitle, setChillfulActivityTitle] = useState("");
     const [chillfulActivityDescription, setChillfulActivityDescription] = useState("");
     const [chillfulActivityCategory, setChillfulActivityCategory] = useState("");
     const [chillfulActivitySubCategory, setChillfulActivitySubCategory] = useState("");
-    const [chillfulActivityImageSmall1, setChillfulActivityImageSmall1] = useState("");
-    const [chillfulActivityImageLarge1, setChillfulActivityImageLarge1] = useState("");
+    const [chillfulActivityImagesSmall, setChillfulActivityImagesSmall] = useState("");
+    const [chillfulActivityImagesLarge, setChillfulActivityImagesLarge] = useState("");
     const [chillfulActivityCurrency, setChillfulActivityCurrency] = useState("");
     const [chillfulActivityPrice, setChillfulActivityPrice] = useState("");
 
@@ -172,7 +172,7 @@ function ActivityCard({id,activity_id}) {
     useEffect(() => {
 
       // to get the information for activity
-      db.collection("chillfulActivities").doc('Nig4oQbcVhA5J7Vjhs5a')
+      db.collection("chillfulActivities").doc(activity_id)
         .get()
         .then( doc => {
           const data = doc.data()
@@ -180,8 +180,8 @@ function ActivityCard({id,activity_id}) {
           setChillfulActivityDescription(data['description']);
           setChillfulActivityCategory(data['category']);
           setChillfulActivitySubCategory(data['subCategory']);
-          setChillfulActivityImageSmall1(data['imageSmall1']);
-          setChillfulActivityImageLarge1(data['imageLarge1']);
+          setChillfulActivityImagesSmall(data['imagesSmall']);
+          setChillfulActivityImagesLarge(data['imagesLarge']);
           setChillfulActivityCurrency(data['currency']);
           setChillfulActivityPrice(data['price']);
         })
@@ -197,7 +197,7 @@ function ActivityCard({id,activity_id}) {
       <ActivityCard2 id={"activityCard_"+id+"_"+activity_id} onMouseOver={()=>activityCard_mouseOver(id,activity_id)} onMouseOut={()=>activityCard_mouseOut(id,activity_id)}>
 
         <ActivityCardContainer>
-          <ActivityCardImageCover style={{backgroundImage: "url(" + chillfulActivityImageSmall1 + ")"}}></ActivityCardImageCover>
+          <ActivityCardImageCover style={{backgroundImage: "url(" + chillfulActivityImagesSmall + ")"}}></ActivityCardImageCover>
         </ActivityCardContainer>
         <ActivityCardBottomContainer className="bottomContainer">
           <ActivityCardBtn className="activity_card_btn">

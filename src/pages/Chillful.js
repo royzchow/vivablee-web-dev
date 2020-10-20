@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ActivityCard from "../components/ActivityCard";
+import ActivitySearchBox from "../components/ActivitySearchBox";
 import Menu from "../components/Menu";
 import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
@@ -8,6 +9,12 @@ import img_event_1 from '../images/chillful/event_1.jpg';
 import { db } from "../firebase";
 
 // define css class
+const ChillfulMargin10 = styled.div`
+  height:10px;
+`;
+const ChillfulMargin40 = styled.div`
+  height:40px;
+`;
 const ChillfulBanner = styled.div`
   height:600px;
   background-size: cover;
@@ -113,148 +120,6 @@ const ChillfulBannerIcon = styled.img`
   @media only screen and (max-width: 800px) {
     height:18px;
   }
-`;
-const ChillfulSearchBoxFrame = styled.div`
-  position:absolute;
-  width:100%;
-`;
-const ChillfulSearchBox = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  width: 700px;
-  margin-top:-70px;
-  border-radius:10px;
-  position:absolute;
-  right: 50%;
-  @media only screen and (max-width: 740px) {
-    width: calc(100vw - 40px);
-  }
-`;
-const ChillfulSearchBoxInner = styled.div`
-  border-radius:10px;
-  background-color:white;
-  position: relative;
-  right: -50%;
-  padding: 20px 30px;
-`;
-const ChillfulSearchBoxBtn = styled.div`
-  border:2px solid #333;
-  border-radius:100px;
-  padding: 3px 5px 3px 5px;
-  cursor:pointer;
-  text-align:center;
-  display: inline-block;
-  font-size:14px;
-  margin-right:3px;
-`;
-const ChillfulSearchBoxBtn2 = styled.div`
-  border:2px solid #333;
-  border-radius:100px;
-  padding: 3px 5px 3px 5px;
-  cursor:pointer;
-  text-align:center;
-  display: inline-block;
-  font-size:14px;
-  margin-right:3px;
-  @media only screen and (max-width: 540px) {
-    display: none;
-  }
-`;
-const ChillfulSearchBoxBtn3 = styled.div`
-  border:2px solid #333;
-  border-radius:100px;
-  padding: 3px 5px 3px 5px;
-  cursor:pointer;
-  text-align:center;
-  display: inline-block;
-  font-size:14px;
-  margin-right:3px;
-  @media only screen and (max-width: 640px) {
-    display: none;
-  }
-`;
-const ChillfulSearchBoxBtn4 = styled.div`
-  border:2px solid #333;
-  border-radius:100px;
-  padding: 3px 5px 3px 5px;
-  cursor:pointer;
-  text-align:center;
-  display: inline-block;
-  font-size:14px;
-  margin-right:3px;
-  @media only screen and (max-width: 740px) {
-    display: none;
-  }
-`;
-const ChillfulSearchBoxBtnText = styled.div`
-  cursor:pointer;
-  display: none;
-  font-size:14px;
-  margin-left:10px;
-  color: #FF585D;
-  text-decoration:underline;
-  font-weight:600;
-  @media only screen and (max-width: 740px) {
-    display: inline-block;
-  }
-`;
-const ChillfulMargin10 = styled.div`
-  height:10px;
-`;
-const ChillfulMargin40 = styled.div`
-  height:40px;
-`;
-const ChillfulSearchBtn = styled.div`
-  width:50px;
-  height:50px;
-  background-color: #FF9700;
-  border-radius:100px;
-  float: right;
-  margin-right: 10px;
-  cursor:pointer;
-`;
-const ChillfulSearchIcon = styled.img`
-  height:22px;
-  margin-top:14px;
-  margin-left:14px;
-`;
-const ChillfulSearchInputBar = styled.input`
-  width:100%;
-  border-style: none;
-  font-size:20px;
-  background-color:transparent;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  :focus {
-     outline: none;
-  }
-`;
-const ChillfulSearchSearchBar = styled.div`
-  padding: 10px 0px 10px 20px;
-  border-radius: 50px;
-  background-color: white;
-  max-width:800px;
-  background-color: #f9f9f9;
-`;
-const ChillfulSearchIntro = styled.p`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  font-size:14px;
-`;
-const ChillfulSearchIntroStrong = styled.span`
-  font-weight:700;
-  color:#FF585D;
-`;
-const ChillfulSearchTable = styled.table`
-  padding-left:10px;
-  width:100%;
-  border-collapse: separate;
 `;
 const ChillfulBody = styled.div`
   background-color:#f9f9f9;
@@ -573,7 +438,7 @@ function Chillful() {
   useEffect(() => {
 
     // to get the information for banner
-    db.collection("chillfulActivities").doc('Nig4oQbcVhA5J7Vjhs5a')
+    db.collection("chillfulActivities").doc('12DxUVuZ8qwC3xLvbv16')
       .get()
       .then( doc => {
         const title = []
@@ -584,7 +449,7 @@ function Chillful() {
       })
 
     // to get the information for activity
-    db.collection("chillfulActivities").doc('Nig4oQbcVhA5J7Vjhs5a')
+    db.collection("chillfulActivities").doc('12DxUVuZ8qwC3xLvbv16')
       .get()
       .then( doc => {
         const data = doc.data()
@@ -621,40 +486,7 @@ function Chillful() {
 
       </ChillfulBanner>
 
-      {/* Be Chillful search box */}
-      <ChillfulSearchBoxFrame>
-        <ChillfulSearchBox>
-          <ChillfulSearchBoxInner>
-            <div>
-              <ChillfulSearchBoxBtn>Active Fitness</ChillfulSearchBoxBtn>
-              <ChillfulSearchBoxBtn>Arts & Crafts</ChillfulSearchBoxBtn>
-              <ChillfulSearchBoxBtn2>Body Wellness</ChillfulSearchBoxBtn2>
-              <ChillfulSearchBoxBtn3>More than Food</ChillfulSearchBoxBtn3>
-              <ChillfulSearchBoxBtn4>Go Out & Discover</ChillfulSearchBoxBtn4>
-              <ChillfulSearchBoxBtnText>explore more...</ChillfulSearchBoxBtnText>
-            </div>
-            <ChillfulMargin10/>
-            <ChillfulSearchSearchBar>
-              <ChillfulSearchTable>
-                <tbody>
-                  <tr>
-                    <td>
-                      <ChillfulSearchIntro><ChillfulSearchIntroStrong>Chill out</ChillfulSearchIntroStrong> and partake in our diversed picks of <ChillfulSearchIntroStrong>relaxing activities and experiences...</ChillfulSearchIntroStrong></ChillfulSearchIntro>
-                      <ChillfulSearchInputBar placeholder="Anything you wanna try and do?"></ChillfulSearchInputBar>
-                    </td>
-                    <td>
-                      <ChillfulSearchBtn>
-                        <ChillfulSearchIcon src={require("../images/general/search.png")} />
-                      </ChillfulSearchBtn>
-                    </td>
-                  </tr>
-                </tbody>
-              </ChillfulSearchTable>
-            </ChillfulSearchSearchBar>
-          </ChillfulSearchBoxInner>
-
-        </ChillfulSearchBox>
-      </ChillfulSearchBoxFrame>
+      <ActivitySearchBox />
 
       <ChillfulBody>
         <ChillfulMargin160/>
@@ -792,15 +624,15 @@ function Chillful() {
               <tbody>
                 <tr>
                   <td><ChillfulActivityListStyle1Margin /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test1"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test1"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test2"} activity_id={"l6CFVZpuFLfgZy4bxXnI"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test2"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test3"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test3"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test4"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test4"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test5"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test5"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin /></td>
                 </tr>
               </tbody>
@@ -819,15 +651,15 @@ function Chillful() {
               <tbody>
                 <tr>
                   <td><ChillfulActivityListStyle1Margin /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test6"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test6"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test7"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test7"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test8"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test8"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test9"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test9"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><ActivityCard id={"test10"} activity_id={"Nig4oQbcVhA5J7Vjhs5a"} /></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test10"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin /></td>
                 </tr>
               </tbody>

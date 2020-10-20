@@ -64,13 +64,16 @@ const MenuMargin = styled.div`
   height:80px;
 `;
 
-function Menu({page}) {
+function Menu({page,shadow}) {
 
   const [chillfulIcon, setChillfulIcon] = useState("chillful_icon_grey.png");
   useEffect(() =>{
     if (page == "chillful") {
       $("#chillful_text").css("color", "#FF585D");
       setChillfulIcon("chillful_icon_original.png");
+    }
+    if (shadow) {
+      $(".menu").css("boxShadow", "0px 0px 12px 5px rgba(0,0,0,0.10)");
     }
   }, []);
 
@@ -92,7 +95,9 @@ function Menu({page}) {
       }else{
         $(".menu").css("paddingTop", "25px");
         $(".menu").css("paddingBottom", "20px");
-        $(".menu").css("boxShadow", "none");
+        if(!shadow){
+          $(".menu").css("boxShadow", "none");
+        }
         $(".menuMargin").css("height", "85px");
         $(".menuLogo").css("height", "40px");
         $(".menuLogo").css("top", "23px");
