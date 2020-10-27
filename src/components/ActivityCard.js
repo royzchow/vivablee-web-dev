@@ -156,7 +156,13 @@ async function activityCard_mouseOut(id,activity_id){
     visibility: hidden;
   `;
 
-function ActivityCard({id,activity_id}) {
+function ActivityCard({id,activity_id,shadow}) {
+
+  useEffect(() =>{
+    if (shadow) {
+      $(".activityCard_"+id+"_"+activity_id).css("boxShadow", "0px 0px 12px 5px rgba(0,0,0,0.10)");
+    }
+  }, []);
 
     const [chillfulActivityTitle, setChillfulActivityTitle] = useState("");
     const [chillfulActivityDescription, setChillfulActivityDescription] = useState("");
@@ -194,7 +200,7 @@ function ActivityCard({id,activity_id}) {
 
     <ActivityCardDiv className="activityCard">
 
-      <ActivityCard2 id={"activityCard_"+id+"_"+activity_id} onMouseOver={()=>activityCard_mouseOver(id,activity_id)} onMouseOut={()=>activityCard_mouseOut(id,activity_id)}>
+      <ActivityCard2 className={"activityCard_"+id+"_"+activity_id} id={"activityCard_"+id+"_"+activity_id} onMouseOver={()=>activityCard_mouseOver(id,activity_id)} onMouseOut={()=>activityCard_mouseOut(id,activity_id)}>
 
         <ActivityCardContainer>
           <ActivityCardImageCover style={{backgroundImage: "url(" + chillfulActivityImagesSmall + ")"}}></ActivityCardImageCover>

@@ -269,7 +269,6 @@ const ActivityPackageOptionTableTotleAmountTitle = styled.span`
   font-size:20px;
   font-weight:bold;
   margin-right:5px;
-  margin-left:10px;
 `;
 const ActivityPackageOptionTableTotleAmountTitleTopMargin = styled.div`
   height:40px;
@@ -423,8 +422,6 @@ function Activity() {
 
   useEffect(() => {
 
-
-
     // to get the information for activity
     db.collection("chillfulActivities").doc('12DxUVuZ8qwC3xLvbv16')
       .get()
@@ -517,6 +514,9 @@ function Activity() {
   const [packages, setPackages] = useState([]);
 
   function chooseTimeslot(id){
+
+    setTargets([]); //to reset the chossen quantity
+
     db.collection("chillfulActivities").doc('12DxUVuZ8qwC3xLvbv16').collection('timeslots').doc(id).collection('packages')
       .get()
       .then((snapshot) => {
@@ -542,7 +542,8 @@ function Activity() {
         snapshot.docs.forEach(doc => {
           t.push({
             id: doc.id,
-            target: doc.data()["target"]
+            target: doc.data()["target"],
+            quantity: 0
           });
         });
       setTargets(t);
@@ -565,6 +566,10 @@ function Activity() {
     });
 
     $("#" + id).css("border", "solid 2px #FF585D"); // to add the css for the clicked button
+
+  }
+
+  function changeQuantity(target, quantity){
 
   }
 
@@ -728,7 +733,15 @@ function Activity() {
                             <ActivityPackageOptionTableQuantityPrice>
                               <ActivityPackageOptionTableQuantityPriceAmount>HKD100.00</ActivityPackageOptionTableQuantityPriceAmount>
                               <ActivityPackageOptionTableQuantityPriceMinus onClick={() => minus_quality(item.target)}>-</ActivityPackageOptionTableQuantityPriceMinus>
-                              <ActivityPackageOptionTableQuantityPriceQuantity defaultValue="0" id={item.target + "Quantity"}></ActivityPackageOptionTableQuantityPriceQuantity>
+
+                              <ActivityPackageOptionTableQuantityPriceQuantity
+                                defaultValue="0"
+                                id={item.target + "Quantity"}
+                                onChange={(e) => changeQuantity(item.target,e.target.value)}
+                              >
+
+                              </ActivityPackageOptionTableQuantityPriceQuantity>
+
                               <ActivityPackageOptionTableQuantityPricePlus onClick={() => plus_quality(item.target)}>+</ActivityPackageOptionTableQuantityPricePlus>
                             </ActivityPackageOptionTableQuantityPrice>
                           </ActivityPackageOptionTableQuantityInner>
@@ -816,7 +829,7 @@ function Activity() {
             <tbody>
               <tr>
                 <td><ChillfulActivityListStyle1Margin /></td>
-                <ChillfulActivityListStyle1Td><ActivityCard id={"test1"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                <ChillfulActivityListStyle1Td><ActivityCard id={"test1"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow /></ChillfulActivityListStyle1Td>
                 <td><ChillfulActivityListStyle1Margin2 /></td>
                 <ChillfulActivityListStyle1Td><ActivityCard id={"test2"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
                 <td><ChillfulActivityListStyle1Margin2 /></td>
