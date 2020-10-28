@@ -7,7 +7,13 @@ import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
 import img from '../images/chillful/event_1.jpg';
 import img_event_1 from '../images/chillful/event_1.jpg';
-import { db } from "../firebase";
+import pattern_background from '../images/general/pattern_background.jpg';
+import demo1 from '../images/mp3/demo1.mp3';
+import { storage, db } from "../firebase";
+import Slider from 'infinite-react-carousel';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
 
 // define css class
 const ChillfulMargin10 = styled.div`
@@ -423,7 +429,7 @@ const ChillfulActivityListStyle1Table = styled.table`
   width:100%
 `;
 
-function Chillful() {
+function Meditation() {
 
 
   const [chillfulBannerTitle, setChillfulBannerTitle] = useState("");
@@ -466,7 +472,7 @@ function Chillful() {
   return (
     <div style={{width: "100%"}}>
 
-      <Menu page={"activities"} />
+      <Menu page={"meditation"} />
 
       {/* Be Chillful top banner */}
       <ChillfulBanner>
@@ -665,4 +671,4 @@ function Chillful() {
   );
 }
 
-export default Chillful;
+export default Meditation;

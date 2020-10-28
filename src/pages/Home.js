@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ActivityCard from "../components/ActivityCard";
 import ActivitySearchBox from "../components/ActivitySearchBox";
 import Menu from "../components/Menu";
+import Footer from "../components/Footer";
 import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
 import img from '../images/chillful/event_1.jpg';
@@ -549,18 +550,7 @@ function HomePage() {
           </g>
       </svg>
 
-      <svg style={{ marginTop:"-7px" }} width="100%" height="auto" viewBox="0 0 3815 394" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <title>Path 6</title>
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <path d="M-1.8189894e-12,259 C459.075022,86.3333333 973.340227,-2.27373675e-13 1542.79561,-2.27373675e-13 C2112.251,-2.27373675e-13 2869.65246,131.323801 3815,393.971403 L-1.8189894e-12,393.971403 L-1.8189894e-12,259 Z" id="Path-6" fill="#F4F2EC"></path>
-          </g>
-      </svg>
-
-      <div style={{ backgroundColor:"#F4F2EC", marginTop:"-7px", padding:"0px 150px 200px 150px" }}>
-
-        <p style={{ fontSize:"24px", fontWeight:"700", color:"#444" }}>Get some Headspace</p>
-
-      </div>
+      <Footer />
 
     </div>
   );

@@ -49,7 +49,15 @@ const MenuIcon = styled.img`
   cursor:pointer;
 `;
 const MenuCategory = styled.span`
-  margin-right: 30px;
+  color: #333;
+  cursor:pointer;
+  transition: all 0.5s;
+  font-weight: 600;
+  transition-property: none;
+  font-size:16px;
+`;
+const MenuCategory2 = styled.span`
+  margin-right:30px;
   color: #333;
   cursor:pointer;
   transition: all 0.5s;
@@ -83,6 +91,31 @@ const MenuButton = styled.button`
   cursor:pointer;
 `;
 
+const MenuArticlesLine = styled.div`
+  opacity:0;
+  height:3px;
+  background-color:#bbb;
+  border-top-left-radius:30px;
+  border-top-right-radius:30px;
+  transition: all 0.3s;
+`;
+const MenuMeditationLine = styled.div`
+  opacity:0;
+  height:3px;
+  background-color:#FF9700;
+  border-top-left-radius:30px;
+  border-top-right-radius:30px;
+  transition: all 0.3s;
+`;
+const MenuActivitiesLine = styled.div`
+  opacity:0;
+  height:3px;
+  background-color:#FF585D;
+  border-top-left-radius:30px;
+  border-top-right-radius:30px;
+  transition: all 0.3s;
+`;
+
 
 function Menu({page,shadow}) {
 
@@ -90,6 +123,34 @@ function Menu({page,shadow}) {
     if (shadow) {
       $(".menu").css("boxShadow", "0px 0px 12px 5px rgba(0,0,0,0.10)");
     }
+
+    $("#articles_text").hover(
+      function() {
+        $("#articles_line").css("opacity", "1");
+      }, function() {
+        $("#articles_line").css("opacity", "0");
+      }
+    );
+    $("#meditation_text").hover(
+      function() {
+        $("#meditation_line").css("opacity", "1");
+      }, function() {
+        $("#meditation_line").css("opacity", "0");
+      }
+    );
+    $("#activities_text").hover(
+      function() {
+        $("#activities_line").css("opacity", "1");
+      }, function() {
+        $("#activities_line").css("opacity", "0");
+      }
+    );
+
+    $('#' + page + '_text').click(function(){
+      $('html,body').animate({ scrollTop: 0 }, 'slow');
+      return false;
+    });
+
   }, []);
 
   useEffect(() =>{
@@ -124,9 +185,15 @@ function Menu({page,shadow}) {
                 </Link>
               </td>
 
+              <td><div style={{ width:"30px" }}></div></td>
+
               <td id="meditation">
-                <MenuCategory id="meditation_text" className="category">Meditation</MenuCategory>
+                <Link to='/Meditation' style={{ textDecoration: 'none' }}>
+                  <MenuCategory id="meditation_text" className="category">Meditation</MenuCategory>
+                </Link>
               </td>
+
+              <td><div style={{ width:"30px" }}></div></td>
 
               <td id="activities">
                 <Link to='/Activities' style={{ textDecoration: 'none' }}>
@@ -134,14 +201,24 @@ function Menu({page,shadow}) {
                 </Link>
               </td>
             </tr>
+
+            <tr><td><div style={{ height:"16px" }}></div></td></tr>
+
+            <tr>
+              <td><MenuArticlesLine id="articles_line"></MenuArticlesLine></td>
+              <td></td>
+              <td><MenuMeditationLine id="meditation_line"></MenuMeditationLine></td>
+              <td></td>
+              <td><MenuActivitiesLine id="activities_line"></MenuActivitiesLine></td>
+            </tr>
           </tbody>
         </MenuTable>
 
         <MenuRight className="menuRight">
 
-          <MenuCategory id="articles_text" className="category">Help</MenuCategory>
-          <MenuCategory id="articles_text" className="category">Work</MenuCategory>
-          <MenuCategory id="articles_text" className="category">About</MenuCategory>
+          <MenuCategory2 id="articles_text" className="category">Help</MenuCategory2>
+          <MenuCategory2 id="articles_text" className="category">Work</MenuCategory2>
+          <MenuCategory2 id="articles_text" className="category">About</MenuCategory2>
           <MenuButton>Try for Free</MenuButton>
 
         </MenuRight>
