@@ -109,7 +109,7 @@ function Articles() {
 
       <div>
 
-        <img src={require("../images/main/app1.jpg"}></img>
+        <img src={require("../images/main/features.jpg")}></img>
 
       </div>
 
