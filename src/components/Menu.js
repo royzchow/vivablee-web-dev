@@ -58,7 +58,7 @@ const MenuCategory = styled.span`
   font-size:16px;
 `;
 const MenuMargin = styled.div`
-  height:80px;
+  height:75px;
 `;
 
 const MenuRight = styled.div`
@@ -92,6 +92,20 @@ function Menu({page,shadow}) {
     }
   }, []);
 
+  useEffect(() =>{
+    $( window ).scroll(function() {
+      var scroll = $(window).scrollTop();
+      if(scroll > 80){
+        $(".menu").css("boxShadow", "0px 0px 12px 5px rgba(0,0,0,0.10)");
+      }else{
+        if(!shadow){
+          $(".menu").css("boxShadow", "none");
+        }
+      }
+    });
+
+  });
+
   // menu content
   return (
     <div>
@@ -105,7 +119,9 @@ function Menu({page,shadow}) {
           <tbody>
             <tr>
               <td id="articles">
-                <MenuCategory id="articles_text" className="category">Articles</MenuCategory>
+                <Link to='/Articles' style={{ textDecoration: 'none' }}>
+                  <MenuCategory id="articles_text" className="category">Articles</MenuCategory>
+                </Link>
               </td>
 
               <td id="meditation">
@@ -113,7 +129,9 @@ function Menu({page,shadow}) {
               </td>
 
               <td id="activities">
-                <MenuCategory id="activities_text" className="category">Activities</MenuCategory>
+                <Link to='/Activities' style={{ textDecoration: 'none' }}>
+                  <MenuCategory id="activities_text" className="category">Activities</MenuCategory>
+                </Link>
               </td>
             </tr>
           </tbody>
