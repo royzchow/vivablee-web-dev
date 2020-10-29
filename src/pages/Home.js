@@ -298,6 +298,11 @@ function HomePage() {
           </BannerBtn2>
           <span style={{ marginLeft:"12px", fontSize:"14px" }}>See how it works</span>
         </div>
+
+        <div style={{ height:"550px", borderRadius:"40px", position:"absolute", right:"0", marginTop:"-440px", marginRight:"250px", transform: "rotate(20deg)", boxShadow: "5px 5px 10px 2px rgba(0,0,0,0.1)" }}>
+          <img style={{ height:"550px" }} src={require("../images/main/app1.png")}></img>
+        </div>
+
       </div>
 
       <svg width="100%" height="auto" viewBox="0 0 3552 261" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -465,12 +470,19 @@ function HomePage() {
           </div>
 
           <audio controls style={{ display:"table", margin: "0px auto", marginTop:"30px", width:"500px" }}>
-            <source src={demo1} type="audio/ogg" />
-            <source src={demo1} type="audio/mpeg" />
+            <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/ogg" />
+            <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/mpeg" />
           </audio>
 
         </PatternBackground>
 
+        <div style={{ height:"400px", borderRadius:"40px", position:"absolute", marginTop:"-410px", marginLeft:"-50px", transform: "rotate(20deg)", boxShadow: "5px 5px 10px 2px rgba(0,0,0,0.1)" }}>
+          <img style={{ height:"400px" }} src={require("../images/main/app1.png")}></img>
+        </div>
+
+        <div style={{ height:"400px", borderRadius:"40px", position:"absolute", right:"0", marginTop:"-450px", marginRight:"100px", transform: "rotate(-10deg)", boxShadow: "5px 5px 10px 2px rgba(0,0,0,0.1)" }}>
+          <img style={{ height:"400px" }} src={require("../images/main/app2.png")}></img>
+        </div>
 
       </div>
 
@@ -501,8 +513,8 @@ function HomePage() {
                     </div>
                   </div>
                   <audio controls style={{ display:"table", margin: "0px auto", paddingTop:"15px", paddingBottom:"30px", width:"500px" }}>
-                    <source src={demo1} type="audio/ogg" />
-                    <source src={demo1} type="audio/mpeg" />
+                    <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/ogg" />
+                    <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/mpeg" />
                   </audio>
                 </div>
 
@@ -525,9 +537,9 @@ function HomePage() {
         <div style={{ marginLeft:"100px", marginRight:"100px" }}>
           <h1 style={{ fontSize:"60px" }}>Join millions getting more mindful with Vivablee App</h1>
           <div style={{ marginTop:"100px" }}>
-            <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px" }} src={require("../images/main/app1.jpg")}></img>
-            <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px"  }} src={require("../images/main/app2.jpg")}></img>
-            <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px"  }} src={require("../images/main/app3.jpg")}></img>
+            <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px" }} src={require("../images/main/app1.png")}></img>
+            <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px"  }} src={require("../images/main/app2.png")}></img>
+            <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px"  }} src={require("../images/main/app3.png")}></img>
           </div>
           <h1 style={{ fontSize:"40px", marginTop:"100px" }}>Try Headspace Plus for free</h1>
 

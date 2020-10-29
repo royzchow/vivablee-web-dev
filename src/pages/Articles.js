@@ -76,7 +76,7 @@ function Articles() {
 
       <Menu page={"articles"} />
 
-      <div style={{ padding:"150px 150px" }}>
+      <div style={{ padding:"70px 150px 150px 150px" }}>
 
         <table>
           <colgroup>
@@ -211,6 +211,14 @@ function Articles() {
           </audio>
 
         </PatternBackground>
+
+        <div style={{ height:"400px", borderRadius:"40px", position:"absolute", marginTop:"-410px", marginLeft:"-50px", transform: "rotate(20deg)", boxShadow: "5px 5px 10px 2px rgba(0,0,0,0.1)" }}>
+          <img style={{ height:"400px" }} src={require("../images/main/app1.png")}></img>
+        </div>
+
+        <div style={{ height:"400px", borderRadius:"40px", position:"absolute", right:"0", marginTop:"-450px", marginRight:"100px", transform: "rotate(-10deg)", boxShadow: "5px 5px 10px 2px rgba(0,0,0,0.1)" }}>
+          <img style={{ height:"400px" }} src={require("../images/main/app2.png")}></img>
+        </div>
 
 
       </div>

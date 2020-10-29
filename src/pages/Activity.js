@@ -5,7 +5,7 @@ import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
-import img from '../images/chillful/event_1.jpg';
+import img from '../images/chillful/food.png';
 import img_event_1 from '../images/chillful/event_1.jpg';
 import { db } from "../firebase";
 
@@ -20,14 +20,14 @@ const ChillfulBanner = styled.div`
   height:600px;
   background-size: cover;
   background-image: url(${img});
+  background-position: center;
+  border-radius:30px;
 `;
 const ChillfulMargin160 = styled.div`
   height:160px;
 `;
 const ChillfulBannerText = styled.div`
-  margin-left:180px;
-  margin-right:180px;
-  color:white;
+  margin-right:100px;
   transition: all 0.5s;
   @media only screen and (max-width: 1100px) {
     margin-left:100px;
@@ -469,23 +469,37 @@ function Chillful() {
       <Menu page={"activities"} />
 
       {/* Be Chillful top banner */}
-      <ChillfulBanner>
 
-        <ChillfulMargin160/>
+      <div style={{ padding:"50px 150px 150px 150px" }}>
 
-        <ChillfulBannerText>
-          <ChillfulBannerIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulBannerIcon>
-          <ChillfulBannerText1>GO OUT & DISCOVER</ChillfulBannerText1>
-          <ChillfulBannerText2>{ chillfulBannerTitle }</ChillfulBannerText2>
-          <ChillfulBannerText3>{ chillfulBannerDescription }</ChillfulBannerText3>
-          <ChillfulBannerText4>Guided tour ● 2 hours</ChillfulBannerText4>
-          <ChillfulBannerBtn>
-            <ChillfulBannerBtnIcon src={require("../images/general/play_white.png")}></ChillfulBannerBtnIcon>
-            <ChillfulBannerBtnText>Join Now</ChillfulBannerBtnText>
-          </ChillfulBannerBtn>
-        </ChillfulBannerText>
+        <table>
+          <colgroup>
+            <col style={{ width:"50%" }} />
+            <col style={{ width:"50%" }} />
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>
+                <ChillfulBannerText>
+                  <ChillfulBannerIcon style={{ marginBottom:"-3px" }} src={require("../images/general/chillful_icon_original.png")}></ChillfulBannerIcon>
+                  <ChillfulBannerText1>MORE THAN FOOD</ChillfulBannerText1>
+                  <ChillfulBannerText2>Mindful Eat in the Restaurant</ChillfulBannerText2>
+                  <ChillfulBannerText3>Try feel the food for every lunch and dinner to feel the current moment...</ChillfulBannerText3>
+                  <ChillfulBannerText4>Mindful eat ● 2 hours</ChillfulBannerText4>
+                  <ChillfulBannerBtn>
+                    <ChillfulBannerBtnIcon src={require("../images/general/play_white.png")}></ChillfulBannerBtnIcon>
+                    <ChillfulBannerBtnText style={{ color:"white" }}>Join Now</ChillfulBannerBtnText>
+                  </ChillfulBannerBtn>
+                </ChillfulBannerText>
+              </td>
 
-      </ChillfulBanner>
+              <td>
+                <ChillfulBanner />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <ActivitySearchBox />
 
