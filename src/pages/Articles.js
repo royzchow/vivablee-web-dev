@@ -6,6 +6,10 @@ import Footer from "../components/Footer";
 import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
 import img from '../images/chillful/event_1.jpg';
+import img_article_1 from '../images/articles/article1.jpg';
+import img_article_2 from '../images/articles/article2.jpg';
+import img_article_3 from '../images/articles/article3.jpg';
+import img_article_4 from '../images/articles/article4.jpg';
 import img_event_1 from '../images/chillful/event_1.jpg';
 import banner_video from '../images/articles/banner_video.jpg';
 import pattern_background from '../images/general/pattern_background.jpg';
@@ -39,6 +43,18 @@ const BannerBtn2 = styled.button`
   cursor:pointer;
   margin-top: 30px;
 `;
+const BannerBtn3 = styled.button`
+  padding: 0px 7px 1px 7px;
+  color:white;
+  border-radius: 50px;
+  border-style: none;
+  background-color:#FF9700;
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0px 3px 12px 2px rgba(0,0,0,0.05);
+  cursor:pointer;
+  margin-left: 20px;
+`;
 
 const BannerVideo = styled.div`
   background-image: url(${banner_video});
@@ -58,18 +74,92 @@ const PatternBackground = styled.div`
   border-radius: 10px;
 `;
 
-const ArticleCardDiv = styled.div`
+const ArticleCardDiv1 = styled.div`
   width: calc( 100% - 10px );
   height:300px;
-  background-image: url(${img});
+  background-image: url(${img_article_1});
+  background-position: center;
   border-radius:15px;
   margin-left:5px;
   margin-right:5px;
   margin-bottom:10px;
 `;
+const ArticleCardDiv2 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_2});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv3 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_3});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv4 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_4});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDivGrey = styled.div`
+  width: calc( 50% - 13px );
+  height:300px;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+  position:absolute;
+  margin-top:-310px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+`;
 
 
 function Articles() {
+
+  useEffect(() =>{
+    $("#article_1").hover(
+      function() {
+        $("#article_1_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_1_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+    $("#article_2").hover(
+      function() {
+        $("#article_2_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_2_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+    $("#article_3").hover(
+      function() {
+        $("#article_3_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_3_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+    $("#article_4").hover(
+      function() {
+        $("#article_4_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_4_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+  }, []);
 
   return (
     <div style={{width: "100%"}}>
@@ -94,8 +184,8 @@ function Articles() {
                   <p style={{ marginTop:"20px", fontSize:"18px", color:"#777" }}>Hundreds of articles for any mind, any mood, any goal. Browse all of our articles on meditation, mindfulness, sleep, and more.</p>
 
                   <audio controls style={{ display:"table", margin: "0px auto", paddingTop:"15px", paddingBottom:"30px", width:"100%" }}>
-                    <source src={demo1} type="audio/ogg" />
-                    <source src={demo1} type="audio/mpeg" />
+                    <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/ogg" />
+                    <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/mpeg" />
                   </audio>
 
                   <BannerBtn>Try Vivablee for free</BannerBtn>
@@ -106,7 +196,7 @@ function Articles() {
               <td>
 
                 <BannerVideo></BannerVideo>
-                <div style={{ position:"absolute", backgroundColor:"red", width:"calc( 50% - 153px )", height:"550px", borderRadius:"10px", marginTop:"-550px", backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
+                <div style={{ position:"absolute", width:"calc( 50% - 153px )", height:"550px", borderRadius:"10px", marginTop:"-550px", backgroundColor: "rgba(0, 0, 0, 0.4)" }}>
 
                   <img style={{ height:"40px", marginTop:"30px", marginLeft:"30px", opacity:"0.8" }} src={require("../images/general/logo_original.png")}></img>
                   <div style={{ left: "50%", marginRight: "-50%", marginTop:"190px", position: "absolute", transform: "translate(-50%, -50%)" }}>
@@ -206,8 +296,8 @@ function Articles() {
           </div>
 
           <audio controls style={{ display:"table", margin: "0px auto", marginTop:"30px", width:"500px" }}>
-            <source src={demo1} type="audio/ogg" />
-            <source src={demo1} type="audio/mpeg" />
+            <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/ogg" />
+            <source src={"https://firebasestorage.googleapis.com/v0/b/vivablee-dev.appspot.com/o/mindfulAudios%2FguidedMeditations%2FHekxGx54Im57AAObluOj%2Fsleep-meditation.mp3?alt=media&token=8f115cf8-e0a0-44c6-952a-6b7ae343b550"} type="audio/mpeg" />
           </audio>
 
         </PatternBackground>
@@ -237,12 +327,88 @@ function Articles() {
           <tbody>
 
             <tr>
-              <td><ArticleCardDiv></ArticleCardDiv></td>
-              <td><ArticleCardDiv></ArticleCardDiv></td>
+              <td>
+                <ArticleCardDiv1></ArticleCardDiv1>
+                <ArticleCardDivGrey id="article_1">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>SLEEP</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>How to sleep better?</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_1_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                </ArticleCardDivGrey>
+              </td>
+              <td>
+                <ArticleCardDiv2></ArticleCardDiv2>
+                <ArticleCardDivGrey id="article_2">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>FOCUS</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>How's meditation work?</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_2_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                </ArticleCardDivGrey>
+              </td>
             </tr>
             <tr>
-              <td><ArticleCardDiv></ArticleCardDiv></td>
-              <td><ArticleCardDiv></ArticleCardDiv></td>
+              <td>
+                <ArticleCardDiv3></ArticleCardDiv3>
+                <ArticleCardDivGrey id="article_3">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF585D", padding:"2px 8px 4px 10px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/chillful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"6px" }}>MORE THAN FOOD</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>What is mindful eating?</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_3_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF585D"}}></div>
+                </ArticleCardDivGrey>
+              </td>
+              <td>
+                <ArticleCardDiv4></ArticleCardDiv4>
+                <ArticleCardDivGrey id="article_4">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>DESTRESS</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>Mindful Walk!</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_4_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                </ArticleCardDivGrey>
+              </td>
             </tr>
 
           </tbody>

@@ -673,10 +673,17 @@ function Meditation() {
 
         </div>
 
-        <ChillfulActivityListStyle1>
+        <svg style={{ marginTop:"100px", marginBottom:"-7px" }} width="100%" height="auto" viewBox="0 0 3840 260" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <title>Path</title>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <path d="M-9.09494702e-13,0.5 L-9.09494702e-13,259.5 C543.289571,86.8333333 1184.99624,0.5 1925.12,0.5 C2499.39149,0.5 3137.68482,86.8333333 3840,259.5 L3840,0.5 L-9.09494702e-13,0.5 Z" id="Path" fill="#f3f3f3" transform="translate(1920.000000, 130.000000) scale(1, -1) translate(-1920.000000, -130.000000) "></path>
+            </g>
+        </svg>
+
+        <ChillfulActivityListStyle1 style={{ backgroundColor:"#f3f3f3" }}>
           <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title>FEATURED</ChillfulActivityListStyle1Title>
-            <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
+            <ChillfulActivityListStyle1Title style={{ color:"#333", fontWeight:"600" }}>GUIDED MEDITATION</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle2Arrow style={{ marginTop:"-1px" }} src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
           </ChillfulActivityListStyle1TitleDiv>
           <ChillfulMargin40 />
 
@@ -700,10 +707,10 @@ function Meditation() {
 
         </ChillfulActivityListStyle1>
 
-        <ChillfulActivityListStyle1 style={{marginTop:"-150px"}}>
+        <ChillfulActivityListStyle1 style={{ backgroundColor:"#f3f3f3", marginTop:"-150px"}}>
           <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title>FEATURED</ChillfulActivityListStyle1Title>
-            <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
+            <ChillfulActivityListStyle1Title style={{ color:"#333", fontWeight:"600" }}>AMBIENT MUSIC</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle2Arrow style={{ marginTop:"-1px" }} src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
           </ChillfulActivityListStyle1TitleDiv>
           <ChillfulMargin40 />
 
@@ -728,6 +735,13 @@ function Meditation() {
         </ChillfulActivityListStyle1>
 
       </ChillfulBody>
+
+      <svg width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <title>Path</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M0,0 C539.876237,172.666667 1179.87624,259 1920,259 C2494.27149,259 3134.27149,172.666667 3840,0 L0,0 Z" id="Path" fill="#f3f3f3"></path>
+          </g>
+      </svg>
 
       <Footer />
 

@@ -673,6 +673,13 @@ function Chillful() {
 
       </ChillfulBody>
 
+      <svg width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <title>Path</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M0,0 C539.876237,172.666667 1179.87624,259 1920,259 C2494.27149,259 3134.27149,172.666667 3840,0 L0,0 Z" id="Path" fill="#f9f9f9"></path>
+          </g>
+      </svg>
+
       <Footer />
 
     </div>

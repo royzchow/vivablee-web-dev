@@ -7,6 +7,10 @@ import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
 import img from '../images/chillful/event_1.jpg';
 import img_event_1 from '../images/chillful/event_1.jpg';
+import img_article_1 from '../images/articles/article1.jpg';
+import img_article_2 from '../images/articles/article2.jpg';
+import img_article_3 from '../images/articles/article3.jpg';
+import img_article_4 from '../images/articles/article4.jpg';
 import pattern_background from '../images/general/pattern_background.jpg';
 import demo1 from '../images/mp3/demo1.mp3';
 import { storage, db } from "../firebase";
@@ -279,8 +283,103 @@ const PatternBackground = styled.div`
   margin-top:-15px;
   border-radius: 10px;
 `;
+const ArticleCardDiv1 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_1});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv2 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_2});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv3 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_3});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv4 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_4});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDivGrey = styled.div`
+  width: calc( 50% - 13px );
+  height:300px;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+  position:absolute;
+  margin-top:-310px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+`;
+const BannerBtn3 = styled.button`
+  padding: 0px 7px 1px 7px;
+  color:white;
+  border-radius: 50px;
+  border-style: none;
+  background-color:#FF9700;
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0px 3px 12px 2px rgba(0,0,0,0.05);
+  cursor:pointer;
+  margin-left: 20px;
+`;
 
 function HomePage() {
+
+  useEffect(() =>{
+    $("#article_1").hover(
+      function() {
+        $("#article_1_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_1_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+    $("#article_2").hover(
+      function() {
+        $("#article_2_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_2_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+    $("#article_3").hover(
+      function() {
+        $("#article_3_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_3_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+    $("#article_4").hover(
+      function() {
+        $("#article_4_hover_box").css("transform", "translate(8px, -8px)");
+      }, function() {
+        $("#article_4_hover_box").css("transform", "translate(0px, 0px)");
+      }
+    );
+  }, []);
 
   return (
     <div style={{width: "100%"}}>
@@ -321,109 +420,103 @@ function HomePage() {
         </div>
 
         <div>
-          <table style={{width:"100%"}} cellSpacing="0" cellPadding="0">
+        <table style={{ width:"100%", marginTop:"-45px", zIndex:"2", position:"relative" }}>
+
           <colgroup>
-            <ChillfulColWidth50/>
-            <ChillfulColWidth25Long2/>
-            <ChillfulColWidth25Long/>
+            <col style={{ width:"50%" }} />
+            <col style={{ width:"50%" }} />
           </colgroup>
-            <tbody>
-              <tr>
-                <td rowSpan="2">
-                  <ChillfulActivityListStyle2ContainerDiv1>
 
-                    <ChillfulActivityListStyle2Container>
-                      <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
-                    </ChillfulActivityListStyle2Container>
-                    <ChillfulActivityListStyle2ClassBottom>
-                      <ChillfulActivityListIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulActivityListIcon>
-                      <ChillfulActivityListStyle2ClassBottomText1>GO OUT & DISCOVER</ChillfulActivityListStyle2ClassBottomText1>
-                      <ChillfulActivityListStyle2ClassBottomText2>1 Local Tour to Pokfulam Village </ChillfulActivityListStyle2ClassBottomText2>
-                      <ChillfulActivityListStyle2ClassBottomText3>Explore the history of Dairy Milk Farm and Bethanie...</ChillfulActivityListStyle2ClassBottomText3>
-                      <ChillfulActivityListStyle2ClassBottomText4>Guided tour ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
-                    </ChillfulActivityListStyle2ClassBottom>
-                  </ChillfulActivityListStyle2ContainerDiv1>
-                </td>
+          <tbody>
 
-                <ChillfulActivityListStyle2ContainerTd>
-                  <ChillfulActivityListStyle2ContainerDiv2>
+            <tr>
+              <td>
+                <ArticleCardDiv1></ArticleCardDiv1>
+                <ArticleCardDivGrey id="article_1">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>SLEEP</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>How to sleep better?</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_1_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                </ArticleCardDivGrey>
+              </td>
+              <td>
+                <ArticleCardDiv2></ArticleCardDiv2>
+                <ArticleCardDivGrey id="article_2">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>FOCUS</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>How's meditation work?</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_2_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                </ArticleCardDivGrey>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ArticleCardDiv3></ArticleCardDiv3>
+                <ArticleCardDivGrey id="article_3">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF585D", padding:"2px 8px 4px 10px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/chillful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"6px" }}>MORE THAN FOOD</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>What is mindful eating?</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_3_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF585D"}}></div>
+                </ArticleCardDivGrey>
+              </td>
+              <td>
+                <ArticleCardDiv4></ArticleCardDiv4>
+                <ArticleCardDivGrey id="article_4">
+                  <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                    <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                      <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                      <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>DESTRESS</span>
+                    </div>
+                  </div>
+                  <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                    <div style={{ padding:"15px 20px 5px 20px"  }}>
+                      <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>Mindful Walk!</p>
+                    </div>
+                    <BannerBtn3>
+                      <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                    </BannerBtn3>
+                  </div>
+                  <div id="article_4_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                </ArticleCardDivGrey>
+              </td>
+            </tr>
 
-                    <ChillfulActivityListStyle2Container>
-                      <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
-                    </ChillfulActivityListStyle2Container>
-                    <ChillfulActivityListStyle2ClassBottom>
-                      <ChillfulActivityListIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulActivityListIcon>
-                      <ChillfulActivityListStyle2ClassBottomText1>GO OUT & DISCOVER</ChillfulActivityListStyle2ClassBottomText1>
-                      <ChillfulActivityListStyle2ClassBottomText2>11 Local Tour to Pokfulam Village </ChillfulActivityListStyle2ClassBottomText2>
-                      <ChillfulActivityListStyle2ClassBottomText3>Explore the history of Dairy Milk Farm and Bethanie...</ChillfulActivityListStyle2ClassBottomText3>
-                      <ChillfulActivityListStyle2ClassBottomText4>Guided tour ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
-                    </ChillfulActivityListStyle2ClassBottom>
+          </tbody>
 
-                  </ChillfulActivityListStyle2ContainerDiv2>
-                </ChillfulActivityListStyle2ContainerTd>
-
-                <ChillfulActivityListStyle2TdLong2>
-                  <ChillfulActivityListStyle2Small1>
-                    <ChillfulActivityListStyle2Container2>
-                      <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
-                    </ChillfulActivityListStyle2Container2>
-                    <ChillfulActivityListStyle2ClassBottom2>
-                      <ChillfulActivityListIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulActivityListIcon>
-                      <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                      <ChillfulActivityListStyle2ClassBottomSmallText2>2 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomSmallText2>
-                      <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
-                    </ChillfulActivityListStyle2ClassBottom2>
-                  </ChillfulActivityListStyle2Small1>
-                </ChillfulActivityListStyle2TdLong2>
-
-                <ChillfulActivityListStyle2TdLong>
-                  <ChillfulActivityListStyle2Small1>
-                    <ChillfulActivityListStyle2Container2>
-                      <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
-                    </ChillfulActivityListStyle2Container2>
-                    <ChillfulActivityListStyle2ClassBottom2>
-                      <ChillfulActivityListIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulActivityListIcon>
-                      <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                      <ChillfulActivityListStyle2ClassBottomSmallText2>3 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomSmallText2>
-                      <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
-                    </ChillfulActivityListStyle2ClassBottom2>
-                  </ChillfulActivityListStyle2Small1>
-                </ChillfulActivityListStyle2TdLong>
-
-              </tr>
-              <tr>
-
-                <td colSpan="2">
-                  <ChillfulActivityListStyle2Small2>
-                    <ChillfulActivityListStyle2Container3>
-                      <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
-                    </ChillfulActivityListStyle2Container3>
-                    <ChillfulActivityListStyle2ClassBottom>
-                      <ChillfulActivityListIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulActivityListIcon>
-                      <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                      <ChillfulActivityListStyle2ClassBottomText2>4 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomText2>
-                      <ChillfulActivityListStyle2ClassBottomText3>Explore the history of Dairy Milk Farm and Bethanie...</ChillfulActivityListStyle2ClassBottomText3>
-                      <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
-                    </ChillfulActivityListStyle2ClassBottom>
-                  </ChillfulActivityListStyle2Small2>
-
-                  <ChillfulActivityListStyle2Small3>
-                    <ChillfulActivityListStyle2Container2>
-                      <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
-                    </ChillfulActivityListStyle2Container2>
-                    <ChillfulActivityListStyle2ClassBottom2>
-                      <ChillfulActivityListIcon src={require("../images/general/chillful_icon_original.png")}></ChillfulActivityListIcon>
-                      <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                      <ChillfulActivityListStyle2ClassBottomSmallText2>5 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomSmallText2>
-                      <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
-                    </ChillfulActivityListStyle2ClassBottom2>
-                  </ChillfulActivityListStyle2Small3>
-
-                </td>
-
-              </tr>
-            </tbody>
-          </table>
+        </table>
         </div>
 
         <div style={{ marginTop:"80px", position: "relative" }}>
