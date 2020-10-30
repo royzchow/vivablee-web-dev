@@ -954,7 +954,7 @@ function Chillful() {
 
         <ChillfulActivityListStyle1 style={{marginTop:"-150px"}}>
           <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title>BODY WELLNESS</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle1Title>MORE THAN FOOD</ChillfulActivityListStyle1Title>
             <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
           </ChillfulActivityListStyle1TitleDiv>
           <ChillfulMargin40 />
