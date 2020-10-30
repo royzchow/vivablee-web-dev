@@ -5,11 +5,105 @@ import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import styled from "styled-components"; // package to define css class
 import $ from 'jquery'; // package to run jQuery
+import img_article_1 from '../images/articles/article1.jpg';
+import img_article_2 from '../images/articles/article2.jpg';
+import img_article_3 from '../images/articles/article3.jpg';
+import img_article_4 from '../images/articles/article4.jpg';
 import img from '../images/chillful/food.png';
 import img_event_1 from '../images/chillful/event_1.jpg';
 import { db } from "../firebase";
 
 // define css class
+const BannerBtn = styled.button`
+  padding: 20px 35px;
+  color:white;
+  border-radius: 50px;
+  border-style: none;
+  background-color:#FF9700;
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0px 3px 12px 2px rgba(0,0,0,0.05);
+  cursor:pointer;
+  margin-top: 30px;
+`;
+const BannerBtn2 = styled.button`
+  padding: 30px 33px;
+  color:white;
+  border-radius: 50px;
+  border-style: none;
+  background-color:#FF9700;
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0px 3px 12px 2px rgba(0,0,0,0.05);
+  cursor:pointer;
+  margin-top: 30px;
+`;
+const BannerBtn3 = styled.button`
+  padding: 0px 7px 1px 7px;
+  color:white;
+  border-radius: 50px;
+  border-style: none;
+  background-color:#FF9700;
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0px 3px 12px 2px rgba(0,0,0,0.05);
+  cursor:pointer;
+  margin-left: 20px;
+`;
+
+const ArticleCardDiv1 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_1});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv2 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_2});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv3 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_3});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDiv4 = styled.div`
+  width: calc( 100% - 10px );
+  height:300px;
+  background-image: url(${img_article_4});
+  background-position: center;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+`;
+const ArticleCardDivGrey = styled.div`
+  width: calc( 50% - 13px );
+  height:300px;
+  border-radius:15px;
+  margin-left:5px;
+  margin-right:5px;
+  margin-bottom:10px;
+  position:absolute;
+  margin-top:-310px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+`;
+
 const ChillfulMargin10 = styled.div`
   height:10px;
 `;
@@ -461,6 +555,35 @@ function Chillful() {
 
       })
 
+      $("#article_1").hover(
+        function() {
+          $("#article_1_hover_box").css("transform", "translate(8px, -8px)");
+        }, function() {
+          $("#article_1_hover_box").css("transform", "translate(0px, 0px)");
+        }
+      );
+      $("#article_2").hover(
+        function() {
+          $("#article_2_hover_box").css("transform", "translate(8px, -8px)");
+        }, function() {
+          $("#article_2_hover_box").css("transform", "translate(0px, 0px)");
+        }
+      );
+      $("#article_3").hover(
+        function() {
+          $("#article_3_hover_box").css("transform", "translate(8px, -8px)");
+        }, function() {
+          $("#article_3_hover_box").css("transform", "translate(0px, 0px)");
+        }
+      );
+      $("#article_4").hover(
+        function() {
+          $("#article_4_hover_box").css("transform", "translate(8px, -8px)");
+        }, function() {
+          $("#article_4_hover_box").css("transform", "translate(0px, 0px)");
+        }
+      );
+
   }, []);
 
   return (
@@ -470,7 +593,7 @@ function Chillful() {
 
       {/* Be Chillful top banner */}
 
-      <div style={{ padding:"50px 150px 150px 150px" }}>
+      <div style={{ padding:"50px 150px 100px 150px" }}>
 
         <table>
           <colgroup>
@@ -500,6 +623,13 @@ function Chillful() {
           </tbody>
         </table>
       </div>
+
+      <svg style={{ backgroundColor:"white", marginBottom:"-40px" }} width="100%" height="auto" viewBox="0 0 3840 260" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <title>Path</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M-9.09494702e-13,0.5 L-9.09494702e-13,259.5 C543.289571,86.8333333 1184.99624,0.5 1925.12,0.5 C2499.39149,0.5 3137.68482,86.8333333 3840,259.5 L3840,0.5 L-9.09494702e-13,0.5 Z" id="Path" fill="#f9f9f9" transform="translate(1920.000000, 130.000000) scale(1, -1) translate(-1920.000000, -130.000000) "></path>
+          </g>
+      </svg>
 
       <ActivitySearchBox />
 
@@ -617,9 +747,133 @@ function Chillful() {
           </div>
         </ChillfulActivityListStyle2>
 
+        <svg style={{ backgroundColor:"white", marginTop:"100px", marginBottom:"-7px" }} width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <title>Path</title>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <path d="M0,0 C539.876237,172.666667 1179.87624,259 1920,259 C2494.27149,259 3134.27149,172.666667 3840,0 L0,0 Z" id="Path" fill="#f9f9f9"></path>
+            </g>
+        </svg>
+
+        <div style={{ paddingLeft:"140px", paddingRight:"140px", paddingTop:"50px", paddingBottom:"120px", backgroundColor:"white" }}>
+
+          <h1 style={{ fontSize:"100px", color:"#f8f4ec", marginLeft:"30px", zIndex:"1", position:"relative" }}>Latest articles</h1>
+
+          <table style={{ width:"100%", marginTop:"-45px", zIndex:"2", position:"relative" }}>
+
+            <colgroup>
+              <col style={{ width:"50%" }} />
+              <col style={{ width:"50%" }} />
+            </colgroup>
+
+            <tbody>
+
+              <tr>
+                <td>
+                  <ArticleCardDiv1></ArticleCardDiv1>
+                  <ArticleCardDivGrey id="article_1">
+                    <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                      <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                        <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                        <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>SLEEP</span>
+                      </div>
+                    </div>
+                    <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                      <div style={{ padding:"15px 20px 5px 20px"  }}>
+                        <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>How to sleep better?</p>
+                      </div>
+                      <BannerBtn3>
+                        <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                      </BannerBtn3>
+                    </div>
+                    <div id="article_1_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                  </ArticleCardDivGrey>
+                </td>
+                <td>
+                  <ArticleCardDiv2></ArticleCardDiv2>
+                  <ArticleCardDivGrey id="article_2">
+                    <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                      <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                        <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                        <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>FOCUS</span>
+                      </div>
+                    </div>
+                    <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                      <div style={{ padding:"15px 20px 5px 20px"  }}>
+                        <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>How's meditation work?</p>
+                      </div>
+                      <BannerBtn3>
+                        <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                      </BannerBtn3>
+                    </div>
+                    <div id="article_2_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                  </ArticleCardDivGrey>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ArticleCardDiv3></ArticleCardDiv3>
+                  <ArticleCardDivGrey id="article_3">
+                    <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                      <div style={{ float:"right", backgroundColor:"#FF585D", padding:"2px 8px 4px 10px", borderRadius:"50px" }}>
+                        <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/chillful_icon_white.png")}></img>
+                        <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"6px" }}>MORE THAN FOOD</span>
+                      </div>
+                    </div>
+                    <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                      <div style={{ padding:"15px 20px 5px 20px"  }}>
+                        <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>What is mindful eating?</p>
+                      </div>
+                      <BannerBtn3>
+                        <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                      </BannerBtn3>
+                    </div>
+                    <div id="article_3_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF585D"}}></div>
+                  </ArticleCardDivGrey>
+                </td>
+                <td>
+                  <ArticleCardDiv4></ArticleCardDiv4>
+                  <ArticleCardDivGrey id="article_4">
+                    <div style={{ position:"absolute", width:"calc( 100% - 24px )", marginTop:"20px" }}>
+                      <div style={{ float:"right", backgroundColor:"#FF9700", padding:"2px 8px 4px 8px", borderRadius:"50px" }}>
+                        <img style={{ width:"12px", marginBottom:"-2px" }} src={require("../images/general/mindful_icon_white.png")}></img>
+                        <span style={{ color:"white", fontSize:"12px", fontWeight:"700", marginLeft:"4px" }}>DESTRESS</span>
+                      </div>
+                    </div>
+                    <div style={{ position:"relative", width:"calc( 100% - 100px )", borderRadius:"10px", height:"80px", margin:"210px 0px 0px 10px", backgroundColor:"white", zIndex:"3"}}>
+                      <div style={{ padding:"15px 20px 5px 20px"  }}>
+                        <p style={{ color:"#333", fontSize:"18px", fontWeight:"700" }}>Mindful Walk!</p>
+                      </div>
+                      <BannerBtn3>
+                        <img style={{ width:"8px", marginLeft:"1px", marginTop:"0px" }} src={require("../images/general/play_white.png")}></img>
+                      </BannerBtn3>
+                    </div>
+                    <div id="article_4_hover_box" style={{ transition:"all 0.5s", width:"calc( 100% - 100px )", position:"absolute", borderRadius:"10px", height:"80px", margin:"-80px 0px 0px 10px", backgroundColor:"#FF9700"}}></div>
+                  </ArticleCardDivGrey>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+          <div style={{ marginTop:"50px", position: "relative", backgroundColor:"white" }}>
+            <div style={{ left: "50%", marginRight: "-50%", position: "absolute", transform: "translate(-50%, -50%)" }}>
+              <BannerBtn>View all articles</BannerBtn>
+            </div>
+          </div>
+
+        </div>
+
+        <svg style={{ backgroundColor:"white", marginTop:"-7px", marginBottom:"-30px" }} width="100%" height="auto" viewBox="0 0 3815 394" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <title>Path 6</title>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <path d="M-1.8189894e-12,259 C459.075022,86.3333333 973.340227,-2.27373675e-13 1542.79561,-2.27373675e-13 C2112.251,-2.27373675e-13 2869.65246,131.323801 3815,393.971403 L-1.8189894e-12,393.971403 L-1.8189894e-12,259 Z" id="Path-6" fill="#f9f9f9"></path>
+            </g>
+        </svg>
+
         <ChillfulActivityListStyle1>
           <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title>FEATURED</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle1Title>ARTS & CRAFTS</ChillfulActivityListStyle1Title>
             <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
           </ChillfulActivityListStyle1TitleDiv>
           <ChillfulMargin40 />
@@ -646,7 +900,7 @@ function Chillful() {
 
         <ChillfulActivityListStyle1 style={{marginTop:"-150px"}}>
           <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title>FEATURED</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle1Title>ACTIVE FITNESS</ChillfulActivityListStyle1Title>
             <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
           </ChillfulActivityListStyle1TitleDiv>
           <ChillfulMargin40 />
@@ -671,9 +925,90 @@ function Chillful() {
 
         </ChillfulActivityListStyle1>
 
+        <ChillfulActivityListStyle1 style={{marginTop:"-150px"}}>
+          <ChillfulActivityListStyle1TitleDiv>
+            <ChillfulActivityListStyle1Title>BODY WELLNESS</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
+          </ChillfulActivityListStyle1TitleDiv>
+          <ChillfulMargin40 />
+
+            <ChillfulActivityListStyle1Table>
+              <tbody>
+                <tr>
+                  <td><ChillfulActivityListStyle1Margin /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test16"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test17"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test18"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test19"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test110"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin /></td>
+                </tr>
+              </tbody>
+            </ChillfulActivityListStyle1Table>
+
+        </ChillfulActivityListStyle1>
+
+        <ChillfulActivityListStyle1 style={{marginTop:"-150px"}}>
+          <ChillfulActivityListStyle1TitleDiv>
+            <ChillfulActivityListStyle1Title>BODY WELLNESS</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
+          </ChillfulActivityListStyle1TitleDiv>
+          <ChillfulMargin40 />
+
+            <ChillfulActivityListStyle1Table>
+              <tbody>
+                <tr>
+                  <td><ChillfulActivityListStyle1Margin /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test26"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test27"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test28"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test29"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test210"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin /></td>
+                </tr>
+              </tbody>
+            </ChillfulActivityListStyle1Table>
+
+        </ChillfulActivityListStyle1>
+
+        <ChillfulActivityListStyle1 style={{marginTop:"-150px"}}>
+          <ChillfulActivityListStyle1TitleDiv>
+            <ChillfulActivityListStyle1Title>GO OUT & DISCOVER</ChillfulActivityListStyle1Title>
+            <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
+          </ChillfulActivityListStyle1TitleDiv>
+          <ChillfulMargin40 />
+
+            <ChillfulActivityListStyle1Table>
+              <tbody>
+                <tr>
+                  <td><ChillfulActivityListStyle1Margin /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test36"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test37"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test38"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test39"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin2 /></td>
+                  <ChillfulActivityListStyle1Td><ActivityCard id={"test310"} activity_id={"12DxUVuZ8qwC3xLvbv16"} /></ChillfulActivityListStyle1Td>
+                  <td><ChillfulActivityListStyle1Margin /></td>
+                </tr>
+              </tbody>
+            </ChillfulActivityListStyle1Table>
+
+        </ChillfulActivityListStyle1>
+
       </ChillfulBody>
 
-      <svg width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <svg style={{ marginTop:"-50px", backgroundColor:"white" }} width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <title>Path</title>
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <path d="M0,0 C539.876237,172.666667 1179.87624,259 1920,259 C2494.27149,259 3134.27149,172.666667 3840,0 L0,0 Z" id="Path" fill="#f9f9f9"></path>

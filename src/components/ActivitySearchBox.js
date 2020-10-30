@@ -29,6 +29,7 @@ const ChillfulSearchBoxInner = styled.div`
   position: relative;
   right: -50%;
   padding: 20px 30px;
+  box-shadow: 0px 3px 5px 3px rgba(0,0,0,0.05);
 `;
 const ChillfulSearchBoxBtn = styled.div`
   border:2px solid #333;

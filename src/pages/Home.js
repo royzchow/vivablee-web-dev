@@ -634,7 +634,7 @@ function HomePage() {
             <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px"  }} src={require("../images/main/app2.png")}></img>
             <img style={{ width:"250px", marginLeft:"40px", marginRight:"40px", borderRadius:"27px"  }} src={require("../images/main/app3.png")}></img>
           </div>
-          <h1 style={{ fontSize:"40px", marginTop:"100px" }}>Try Headspace Plus for free</h1>
+          <h1 style={{ fontSize:"40px", marginTop:"100px" }}>Try Vivablee for free</h1>
 
           <p style={{ fontSize:"12px", width:"70%", margin:"10px auto" }}>After your free trial, the annual subscription is $69.99 and automatically renews each year. If you subscribe before your free trial ends, the rest of your free trial period will be forfeited as soon as your purchase is confirmed.</p>
 
