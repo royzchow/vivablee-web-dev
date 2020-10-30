@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import AmbientMusicCard from "../components/AmbientMusicCard";
 import MeditationCard from "../components/MeditationCard";
-import ActivitySearchBox from "../components/ActivitySearchBox";
+import MeditationSearchBox from "../components/MeditationSearchBox";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import styled from "styled-components"; // package to define css class
@@ -411,7 +412,7 @@ const ChillfulActivityListStyle2Small3 = styled.div`
 `;
 const ChillfulActivityListStyle1 = styled.div`
   overflow-x: scroll;
-  height:500px;
+  height:550px;
   padding-top:70px;
   ::-webkit-scrollbar {
     display: none;
@@ -514,7 +515,7 @@ function Meditation() {
 
       </ChillfulBanner>
 
-      <ActivitySearchBox />
+      <MeditationSearchBox />
 
       <ChillfulBody>
         <ChillfulMargin160/>
@@ -682,51 +683,23 @@ function Meditation() {
 
         <ChillfulActivityListStyle1 style={{ backgroundColor:"#f3f3f3" }}>
           <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title style={{ color:"#333", fontWeight:"600" }}>GUIDED MEDITATION</ChillfulActivityListStyle1Title>
-            <ChillfulActivityListStyle2Arrow style={{ marginTop:"-1px" }} src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
+            <h1 style={{ color:"#999", fontWeight:"600", fontSize:"100px", marginLeft:"50px"}}>Ambient music</h1>
           </ChillfulActivityListStyle1TitleDiv>
-          <ChillfulMargin40 />
+          <div style={{ height:"95px" }}></div>
 
             <ChillfulActivityListStyle1Table>
               <tbody>
                 <tr>
                   <td><ChillfulActivityListStyle1Margin /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test1"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><AmbientMusicCard id={"test6"} activity_id={"uxdypsOrmr55QisN0Wdv"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test2"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><AmbientMusicCard id={"test7"} activity_id={"9vjYN5vkmRj19Dky2t2R"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test3"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><AmbientMusicCard id={"test8"} activity_id={"IDAYNJaWKVJS2S5yyMTn"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test4"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><AmbientMusicCard id={"test9"} activity_id={"Nq3t55WuJMDEMW1REURW"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test5"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
-                  <td><ChillfulActivityListStyle1Margin /></td>
-                </tr>
-              </tbody>
-            </ChillfulActivityListStyle1Table>
-
-        </ChillfulActivityListStyle1>
-
-        <ChillfulActivityListStyle1 style={{ backgroundColor:"#f3f3f3", marginTop:"-150px"}}>
-          <ChillfulActivityListStyle1TitleDiv>
-            <ChillfulActivityListStyle1Title style={{ color:"#333", fontWeight:"600" }}>AMBIENT MUSIC</ChillfulActivityListStyle1Title>
-            <ChillfulActivityListStyle2Arrow style={{ marginTop:"-1px" }} src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
-          </ChillfulActivityListStyle1TitleDiv>
-          <ChillfulMargin40 />
-
-            <ChillfulActivityListStyle1Table>
-              <tbody>
-                <tr>
-                  <td><ChillfulActivityListStyle1Margin /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test6"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
-                  <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test7"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
-                  <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test8"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
-                  <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test9"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
-                  <td><ChillfulActivityListStyle1Margin2 /></td>
-                  <ChillfulActivityListStyle1Td><MeditationCard id={"test10"} activity_id={"12DxUVuZ8qwC3xLvbv16"} shadow/></ChillfulActivityListStyle1Td>
+                  <ChillfulActivityListStyle1Td><AmbientMusicCard id={"test10"} activity_id={"xLXg8hmaY1mtfwwctaWb"} /></ChillfulActivityListStyle1Td>
                   <td><ChillfulActivityListStyle1Margin /></td>
                 </tr>
               </tbody>
@@ -736,7 +709,7 @@ function Meditation() {
 
       </ChillfulBody>
 
-      <svg width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <svg style={{ backgroundColor:"white", marginTop:"-80px", zIndex:"3", position:"relative" }} width="100%" height="auto" viewBox="0 0 3840 259" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <title>Path</title>
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <path d="M0,0 C539.876237,172.666667 1179.87624,259 1920,259 C2494.27149,259 3134.27149,172.666667 3840,0 L0,0 Z" id="Path" fill="#f3f3f3"></path>

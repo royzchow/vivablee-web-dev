@@ -12,3 +12,7 @@ textarea,
 button {
   font-family: "Nunito Sans", sans-serif;
 }
+audio,
+button:focus {
+    outline: none;
+}

@@ -159,10 +159,36 @@ function Articles() {
         $("#article_4_hover_box").css("transform", "translate(0px, 0px)");
       }
     );
+
+    $("#playVideoBtn").click(
+      function() {
+        $("#playVideoDiv").css("display", "block");
+        $("body").css("overflow", "hidden");
+      }
+    );
+    $("#hideVideoBtn").click(
+      function() {
+        $("#playVideoDiv").css("display", "none");
+        $("body").css("overflow", "scroll");
+      }
+    );
+
   }, []);
 
   return (
     <div style={{width: "100%"}}>
+
+      <div id="playVideoDiv" style={{ display:"none", width:"100%", height:"100%", backgroundColor: "rgba(0, 0, 0, 0.5)", position:"fixed", zIndex:"200" }}>
+
+        <div id="hideVideoBtn" style={{ display:"table", margin: "80px auto 30px auto" }}>
+          <p style={{ color:"#555", backgroundColor:"#fafafa", padding:"5px 14px 6px 14px", borderRadius:"50px", fontSize:"24px", cursor:"pointer" }}>⨉</p>
+        </div>
+
+        <div style={{ display:"table", margin: "0px auto", borderRadius:"10px" }}>
+
+          <iframe style={{ borderRadius:"10px" }} width="784" height="441" src="https://www.youtube.com/embed/IeblJdB2-Vo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
 
       <Menu page={"articles"} />
 
@@ -200,7 +226,7 @@ function Articles() {
 
                   <img style={{ height:"40px", marginTop:"30px", marginLeft:"30px", opacity:"0.8" }} src={require("../images/general/logo_original.png")}></img>
                   <div style={{ left: "50%", marginRight: "-50%", marginTop:"190px", position: "absolute", transform: "translate(-50%, -50%)" }}>
-                    <BannerBtn2>
+                    <BannerBtn2 id="playVideoBtn">
                       <img style={{ width:"24px", marginLeft:"5px", marginTop:"5px" }} src={require("../images/general/play_white.png")}></img>
                     </BannerBtn2>
                   </div>
@@ -263,7 +289,7 @@ function Articles() {
 
       <div style={{ marginLeft:"150px", marginRight:"150px", marginTop:"160px", marginBottom:"140px" }}>
 
-        <h1 style={{ fontSize:"60px", fontWeight:"700", color:"#444", textAlign:"center", marginBottom:"25px" }}>Get some Headspace</h1>
+        <h1 style={{ fontSize:"60px", fontWeight:"700", color:"#444", textAlign:"center", marginBottom:"25px" }}>Get some Guided Meditation</h1>
 
         <div style={{ display:"table", margin: "0px auto" }}>
 

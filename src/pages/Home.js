@@ -530,7 +530,7 @@ function HomePage() {
 
       <div style={{ marginLeft:"150px", marginRight:"150px", marginTop:"220px" }}>
 
-        <h1 style={{ fontSize:"60px", fontWeight:"700", color:"#444", textAlign:"center", marginBottom:"25px" }}>Get some Headspace</h1>
+        <h1 style={{ fontSize:"60px", fontWeight:"700", color:"#444", textAlign:"center", marginBottom:"25px" }}>Get some Guided Meditation</h1>
 
         <div style={{ display:"table", margin: "0px auto" }}>
 
