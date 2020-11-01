@@ -180,8 +180,8 @@ const ChillfulMargin50 = styled.div`
   height:50px;
 `;
 const ChillfulActivityListStyle2 = styled.div`
-  margin-left:100px;
-  margin-right:100px;
+  margin-left:150px;
+  margin-right:150px;
   @media only screen and (max-width: 1300px) {
     margin-left:50px;
     margin-right:50px;
@@ -229,6 +229,7 @@ const ChillfulColWidth25Long = styled.col`
 const ChillfulActivityListIcon = styled.img`
   height:12px;
   margin-right:2px;
+  margin-bottom: -1px;
   display:inline;
 `;
 const ChillfulActivityListStyle2Container = styled.div`
@@ -282,7 +283,6 @@ const ChillfulActivityListStyle2ImageCover = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-image: url(${img_event_1});
 `;
 const ChillfulActivityListStyle2ClassBottom = styled.div`
   height:118px;
@@ -301,6 +301,7 @@ const ChillfulActivityListStyle2ClassBottomText1 = styled.div`
   display:inline;
   margin-left:3px;
   font-weight:700;
+  text-transform: uppercase;
 `;
 const ChillfulActivityListStyle2ClassBottomText2 = styled.div`
   font-size:28px;
@@ -347,6 +348,7 @@ const ChillfulActivityListStyle2ClassBottomText4 = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  text-transform: capitalize;
   @media only screen and (max-width: 800px) {
     font-size:14px;
   }
@@ -462,6 +464,34 @@ function Meditation() {
   const [chillfulActivityCategory, setChillfulActivityCategory] = useState("");
   const [chillfulActivitySubCategory, setChillfulActivitySubCategory] = useState("");
 
+  const [guidedMeditationTitle1, setGuidedMeditationTitle1] = useState("");
+  const [guidedMeditationDescription1, setGuidedMeditationDescription1] = useState("");
+  const [guidedMeditationCategory1, setGuidedMeditationCategory1] = useState("");
+  const [guidedMeditationSubCategory1, setGuidedMeditationSubCategory1] = useState("");
+  const [guidedMeditationImagesLarge1, setGuidedMeditationImagesLarge1] = useState("");
+  const [guidedMeditationImagesSmall1, setGuidedMeditationImagesSmall1] = useState("");
+
+  const [guidedMeditationTitle2, setGuidedMeditationTitle2] = useState("");
+  const [guidedMeditationDescription2, setGuidedMeditationDescription2] = useState("");
+  const [guidedMeditationCategory2, setGuidedMeditationCategory2] = useState("");
+  const [guidedMeditationSubCategory2, setGuidedMeditationSubCategory2] = useState("");
+  const [guidedMeditationImagesLarge2, setGuidedMeditationImagesLarge2] = useState("");
+  const [guidedMeditationImagesSmall2, setGuidedMeditationImagesSmall2] = useState("");
+
+  const [guidedMeditationTitle3, setGuidedMeditationTitle3] = useState("");
+  const [guidedMeditationDescription3, setGuidedMeditationDescription3] = useState("");
+  const [guidedMeditationCategory3, setGuidedMeditationCategory3] = useState("");
+  const [guidedMeditationSubCategory3, setGuidedMeditationSubCategory3] = useState("");
+  const [guidedMeditationImagesLarge3, setGuidedMeditationImagesLarge3] = useState("");
+  const [guidedMeditationImagesSmall3, setGuidedMeditationImagesSmall3] = useState("");
+
+  const [guidedMeditationTitle4, setGuidedMeditationTitle4] = useState("");
+  const [guidedMeditationDescription4, setGuidedMeditationDescription4] = useState("");
+  const [guidedMeditationCategory4, setGuidedMeditationCategory4] = useState("");
+  const [guidedMeditationSubCategory4, setGuidedMeditationSubCategory4] = useState("");
+  const [guidedMeditationImagesLarge4, setGuidedMeditationImagesLarge4] = useState("");
+  const [guidedMeditationImagesSmall4, setGuidedMeditationImagesSmall4] = useState("");
+
   var chillfulActivityCategoryId = "";
 
   useEffect(() => {
@@ -486,8 +516,55 @@ function Meditation() {
         setChillfulActivityDescription(data['description']);
         setChillfulActivityCategory(data['category']);
         setChillfulActivitySubCategory(data['subCategory']);
+    })
 
-      })
+    db.collection("mindfulGuidedMeditation").doc('wDyKEgsenIR9MoXUTCXe')
+      .get()
+      .then( doc => {
+        const data = doc.data()
+        setGuidedMeditationTitle1(data['title']);
+        setGuidedMeditationDescription1(data['description']);
+        setGuidedMeditationCategory1(data['category']);
+        setGuidedMeditationSubCategory1(data['subCategory']);
+        setGuidedMeditationImagesLarge1(data['imagesLarge']);
+        setGuidedMeditationImagesSmall1(data['imagesSmall']);
+    })
+
+    db.collection("mindfulGuidedMeditation").doc('q8SfxV4oyuVCf0aUnz3i')
+      .get()
+      .then( doc => {
+        const data = doc.data()
+        setGuidedMeditationTitle2(data['title']);
+        setGuidedMeditationDescription2(data['description']);
+        setGuidedMeditationCategory2(data['category']);
+        setGuidedMeditationSubCategory2(data['subCategory']);
+        setGuidedMeditationImagesLarge2(data['imagesLarge']);
+        setGuidedMeditationImagesSmall2(data['imagesSmall']);
+    })
+
+    db.collection("mindfulGuidedMeditation").doc('nKUfOSSkQeTFHk8uXVTa')
+      .get()
+      .then( doc => {
+        const data = doc.data()
+        setGuidedMeditationTitle3(data['title']);
+        setGuidedMeditationDescription3(data['description']);
+        setGuidedMeditationCategory3(data['category']);
+        setGuidedMeditationSubCategory3(data['subCategory']);
+        setGuidedMeditationImagesLarge3(data['imagesLarge']);
+        setGuidedMeditationImagesSmall3(data['imagesSmall']);
+    })
+
+    db.collection("mindfulGuidedMeditation").doc('ezFCn8PgiHBClil3rFqz')
+      .get()
+      .then( doc => {
+        const data = doc.data()
+        setGuidedMeditationTitle4(data['title']);
+        setGuidedMeditationDescription4(data['description']);
+        setGuidedMeditationCategory4(data['category']);
+        setGuidedMeditationSubCategory4(data['subCategory']);
+        setGuidedMeditationImagesLarge4(data['imagesLarge']);
+        setGuidedMeditationImagesSmall4(data['imagesSmall']);
+    })
 
   }, []);
 
@@ -517,13 +594,38 @@ function Meditation() {
 
       <MeditationSearchBox />
 
+      <div style={{ marginLeft:"150px", marginRight:"150px", marginTop:"180px", marginBottom:"70px" }}>
+
+        <h1 style={{ fontSize:"60px", fontWeight:"700", color:"#444", textAlign:"center", marginBottom:"25px" }}>Get some Guided Meditation</h1>
+
+        <div style={{ display:"table", margin: "0px auto" }}>
+
+          <div style={{ borderRadius: "10px", backgroundColor:"#FA6400", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+            <span style={{  }}>Wake up</span>
+          </div>
+          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+            <span style={{  }}>Travel</span>
+          </div>
+          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+            <span style={{  }}>Focus</span>
+          </div>
+          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+            <span style={{  }}>Destress</span>
+          </div>
+          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+            <span style={{  }}>Live Well</span>
+          </div>
+          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+            <span style={{  }}>Sleep</span>
+          </div>
+
+        </div>
+
+      </div>
+
       <ChillfulBody>
-        <ChillfulMargin160/>
 
         <ChillfulActivityListStyle2>
-          <ChillfulActivityListStyle2Title>RECOMMENDED FOR YOU</ChillfulActivityListStyle2Title>
-          <ChillfulActivityListStyle2Arrow src={require("../images/general/arrow_right_black.png")}></ChillfulActivityListStyle2Arrow>
-          <ChillfulMargin10 />
           <div>
             <table style={{width:"100%"}} cellSpacing="0" cellPadding="0">
             <colgroup>
@@ -537,14 +639,14 @@ function Meditation() {
                     <ChillfulActivityListStyle2ContainerDiv1>
 
                       <ChillfulActivityListStyle2Container>
-                        <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
+                        <ChillfulActivityListStyle2ImageCover style={{backgroundImage: "url(" + guidedMeditationImagesLarge1 + ")"}}></ChillfulActivityListStyle2ImageCover>
                       </ChillfulActivityListStyle2Container>
                       <ChillfulActivityListStyle2ClassBottom>
                         <ChillfulActivityListIcon src={require("../images/general/mindful_icon_original.png")}></ChillfulActivityListIcon>
-                        <ChillfulActivityListStyle2ClassBottomText1>GO OUT & DISCOVER</ChillfulActivityListStyle2ClassBottomText1>
-                        <ChillfulActivityListStyle2ClassBottomText2>1 Local Tour to Pokfulam Village </ChillfulActivityListStyle2ClassBottomText2>
-                        <ChillfulActivityListStyle2ClassBottomText3>Explore the history of Dairy Milk Farm and Bethanie...</ChillfulActivityListStyle2ClassBottomText3>
-                        <ChillfulActivityListStyle2ClassBottomText4>Guided tour ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
+                        <ChillfulActivityListStyle2ClassBottomText1>{ guidedMeditationCategory1 }</ChillfulActivityListStyle2ClassBottomText1>
+                        <ChillfulActivityListStyle2ClassBottomText2>{ guidedMeditationTitle1 }</ChillfulActivityListStyle2ClassBottomText2>
+                        <ChillfulActivityListStyle2ClassBottomText3>{ guidedMeditationDescription1 }</ChillfulActivityListStyle2ClassBottomText3>
+                        <ChillfulActivityListStyle2ClassBottomText4>{ guidedMeditationSubCategory1 } ● 5 minutes</ChillfulActivityListStyle2ClassBottomText4>
                       </ChillfulActivityListStyle2ClassBottom>
                     </ChillfulActivityListStyle2ContainerDiv1>
                   </td>
@@ -553,14 +655,14 @@ function Meditation() {
                     <ChillfulActivityListStyle2ContainerDiv2>
 
                       <ChillfulActivityListStyle2Container>
-                        <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
+                        <ChillfulActivityListStyle2ImageCover style={{backgroundImage: "url(" + guidedMeditationImagesLarge2 + ")"}}></ChillfulActivityListStyle2ImageCover>
                       </ChillfulActivityListStyle2Container>
                       <ChillfulActivityListStyle2ClassBottom>
                         <ChillfulActivityListIcon src={require("../images/general/mindful_icon_original.png")}></ChillfulActivityListIcon>
-                        <ChillfulActivityListStyle2ClassBottomText1>GO OUT & DISCOVER</ChillfulActivityListStyle2ClassBottomText1>
-                        <ChillfulActivityListStyle2ClassBottomText2>11 Local Tour to Pokfulam Village </ChillfulActivityListStyle2ClassBottomText2>
-                        <ChillfulActivityListStyle2ClassBottomText3>Explore the history of Dairy Milk Farm and Bethanie...</ChillfulActivityListStyle2ClassBottomText3>
-                        <ChillfulActivityListStyle2ClassBottomText4>Guided tour ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
+                        <ChillfulActivityListStyle2ClassBottomText1>{ guidedMeditationCategory2 }</ChillfulActivityListStyle2ClassBottomText1>
+                        <ChillfulActivityListStyle2ClassBottomText2>{ guidedMeditationTitle2 }</ChillfulActivityListStyle2ClassBottomText2>
+                        <ChillfulActivityListStyle2ClassBottomText3>{ guidedMeditationDescription2 }</ChillfulActivityListStyle2ClassBottomText3>
+                        <ChillfulActivityListStyle2ClassBottomText4>{ guidedMeditationSubCategory2 } ● 5 minutes</ChillfulActivityListStyle2ClassBottomText4>
                       </ChillfulActivityListStyle2ClassBottom>
 
                     </ChillfulActivityListStyle2ContainerDiv2>
@@ -569,13 +671,13 @@ function Meditation() {
                   <ChillfulActivityListStyle2TdLong2>
                     <ChillfulActivityListStyle2Small1>
                       <ChillfulActivityListStyle2Container2>
-                        <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
+                        <ChillfulActivityListStyle2ImageCover style={{backgroundImage: "url(" + guidedMeditationImagesLarge2 + ")"}}></ChillfulActivityListStyle2ImageCover>
                       </ChillfulActivityListStyle2Container2>
                       <ChillfulActivityListStyle2ClassBottom2>
                         <ChillfulActivityListIcon src={require("../images/general/mindful_icon_original.png")}></ChillfulActivityListIcon>
-                        <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                        <ChillfulActivityListStyle2ClassBottomSmallText2>2 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomSmallText2>
-                        <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
+                        <ChillfulActivityListStyle2ClassBottomText1>{ guidedMeditationCategory2 }</ChillfulActivityListStyle2ClassBottomText1>
+                        <ChillfulActivityListStyle2ClassBottomSmallText2>{ guidedMeditationTitle2 }</ChillfulActivityListStyle2ClassBottomSmallText2>
+                        <ChillfulActivityListStyle2ClassBottomText4>{ guidedMeditationSubCategory2 } ● 12 minutes</ChillfulActivityListStyle2ClassBottomText4>
                       </ChillfulActivityListStyle2ClassBottom2>
                     </ChillfulActivityListStyle2Small1>
                   </ChillfulActivityListStyle2TdLong2>
@@ -583,13 +685,13 @@ function Meditation() {
                   <ChillfulActivityListStyle2TdLong>
                     <ChillfulActivityListStyle2Small1>
                       <ChillfulActivityListStyle2Container2>
-                        <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
+                        <ChillfulActivityListStyle2ImageCover style={{backgroundImage: "url(" + guidedMeditationImagesLarge3 + ")"}}></ChillfulActivityListStyle2ImageCover>
                       </ChillfulActivityListStyle2Container2>
                       <ChillfulActivityListStyle2ClassBottom2>
                         <ChillfulActivityListIcon src={require("../images/general/mindful_icon_original.png")}></ChillfulActivityListIcon>
-                        <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                        <ChillfulActivityListStyle2ClassBottomSmallText2>3 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomSmallText2>
-                        <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
+                        <ChillfulActivityListStyle2ClassBottomText1>{ guidedMeditationCategory3 }</ChillfulActivityListStyle2ClassBottomText1>
+                        <ChillfulActivityListStyle2ClassBottomSmallText2>{ guidedMeditationTitle3 }</ChillfulActivityListStyle2ClassBottomSmallText2>
+                        <ChillfulActivityListStyle2ClassBottomText4>{ guidedMeditationSubCategory3 } ● 7 minutes</ChillfulActivityListStyle2ClassBottomText4>
                       </ChillfulActivityListStyle2ClassBottom2>
                     </ChillfulActivityListStyle2Small1>
                   </ChillfulActivityListStyle2TdLong>
@@ -600,26 +702,26 @@ function Meditation() {
                   <td colSpan="2">
                     <ChillfulActivityListStyle2Small2>
                       <ChillfulActivityListStyle2Container3>
-                        <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
+                        <ChillfulActivityListStyle2ImageCover style={{backgroundImage: "url(" + guidedMeditationImagesLarge4 + ")"}}></ChillfulActivityListStyle2ImageCover>
                       </ChillfulActivityListStyle2Container3>
                       <ChillfulActivityListStyle2ClassBottom>
                         <ChillfulActivityListIcon src={require("../images/general/mindful_icon_original.png")}></ChillfulActivityListIcon>
-                        <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                        <ChillfulActivityListStyle2ClassBottomText2>4 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomText2>
-                        <ChillfulActivityListStyle2ClassBottomText3>Explore the history of Dairy Milk Farm and Bethanie...</ChillfulActivityListStyle2ClassBottomText3>
-                        <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
+                        <ChillfulActivityListStyle2ClassBottomText1>{ guidedMeditationCategory4 }</ChillfulActivityListStyle2ClassBottomText1>
+                        <ChillfulActivityListStyle2ClassBottomText2>{ guidedMeditationTitle4 }</ChillfulActivityListStyle2ClassBottomText2>
+                        <ChillfulActivityListStyle2ClassBottomText3>{ guidedMeditationDescription4 }</ChillfulActivityListStyle2ClassBottomText3>
+                        <ChillfulActivityListStyle2ClassBottomText4>{ guidedMeditationSubCategory4 } ● 4 minutes</ChillfulActivityListStyle2ClassBottomText4>
                       </ChillfulActivityListStyle2ClassBottom>
                     </ChillfulActivityListStyle2Small2>
 
                     <ChillfulActivityListStyle2Small3>
                       <ChillfulActivityListStyle2Container2>
-                        <ChillfulActivityListStyle2ImageCover></ChillfulActivityListStyle2ImageCover>
+                        <ChillfulActivityListStyle2ImageCover style={{backgroundImage: "url(" + guidedMeditationImagesLarge3 + ")"}}></ChillfulActivityListStyle2ImageCover>
                       </ChillfulActivityListStyle2Container2>
                       <ChillfulActivityListStyle2ClassBottom2>
                         <ChillfulActivityListIcon src={require("../images/general/mindful_icon_original.png")}></ChillfulActivityListIcon>
-                        <ChillfulActivityListStyle2ClassBottomText1>ARTS & CRAFTS</ChillfulActivityListStyle2ClassBottomText1>
-                        <ChillfulActivityListStyle2ClassBottomSmallText2>5 Floral Arrangement Workshop by Hereafter</ChillfulActivityListStyle2ClassBottomSmallText2>
-                        <ChillfulActivityListStyle2ClassBottomText4>Crafting workshop ● 2 hours</ChillfulActivityListStyle2ClassBottomText4>
+                        <ChillfulActivityListStyle2ClassBottomText1>{ guidedMeditationCategory3 }</ChillfulActivityListStyle2ClassBottomText1>
+                        <ChillfulActivityListStyle2ClassBottomSmallText2>{ guidedMeditationTitle3 }</ChillfulActivityListStyle2ClassBottomSmallText2>
+                        <ChillfulActivityListStyle2ClassBottomText4>{ guidedMeditationSubCategory3 } ● 7 minutes</ChillfulActivityListStyle2ClassBottomText4>
                       </ChillfulActivityListStyle2ClassBottom2>
                     </ChillfulActivityListStyle2Small3>
 

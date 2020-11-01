@@ -172,6 +172,7 @@ function ActivityCard({id,activity_id,shadow}) {
     const [chillfulActivityImagesLarge, setChillfulActivityImagesLarge] = useState("");
     const [chillfulActivityCurrency, setChillfulActivityCurrency] = useState("");
     const [chillfulActivityPrice, setChillfulActivityPrice] = useState("");
+    const [chillfulActivityDuration, setChillfulActivityDuration] = useState("");
 
     var chillfulActivityCategoryId = "";
 
@@ -190,6 +191,7 @@ function ActivityCard({id,activity_id,shadow}) {
           setChillfulActivityImagesLarge(data['imagesLarge']);
           setChillfulActivityCurrency(data['currency']);
           setChillfulActivityPrice(data['price']);
+          setChillfulActivityDuration(data['duration']/3600);
         })
 
     }, []);
@@ -213,7 +215,7 @@ function ActivityCard({id,activity_id,shadow}) {
           <ActivityCardBottomChillfulLogo src={require("../images/general/chillful_icon_original.png")}></ActivityCardBottomChillfulLogo>
           <ActivityCardBottomText1>{ chillfulActivityCategory }</ActivityCardBottomText1>
           <ActivityCardBottomText2>{ chillfulActivityTitle }</ActivityCardBottomText2>
-          <ActivityCardBottomText3>{ chillfulActivitySubCategory } ● 12 hours</ActivityCardBottomText3>
+          <ActivityCardBottomText3>{ chillfulActivitySubCategory } ● { chillfulActivityDuration } hours</ActivityCardBottomText3>
           <ActivityCardBottomDescription className="activity_card_description">{ chillfulActivityDescription }</ActivityCardBottomDescription>
           <ActivityCardBottomPrice className="activity_card_price">From { chillfulActivityCurrency } { chillfulActivityPrice } / person</ActivityCardBottomPrice>
         </ActivityCardBottomContainer>
