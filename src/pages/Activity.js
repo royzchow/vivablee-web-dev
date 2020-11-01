@@ -1005,8 +1005,8 @@ function Chillful() {
             </g>
         </svg>
 
-        <div style={{ position:"absolute", right:"100px", marginTop:"0px" }}>
-          <h1 style={{ fontSize:"100px", color:"#999" }}>All Activities</h1>
+        <div style={{ position:"absolute", right:"150px", marginTop:"-15px" }}>
+          <h1 style={{ fontSize:"80px", color:"#333" }}>All Activities</h1>
         </div>
 
         <ChillfulActivityListStyle1>
