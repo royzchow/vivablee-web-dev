@@ -379,7 +379,19 @@ function HomePage() {
         $("#article_4_hover_box").css("transform", "translate(0px, 0px)");
       }
     );
+
+    
+
   }, []);
+  const Cat = ["wakeup","travel","focus","destress","livewell","sleep"];
+  function clickEvent(category){
+    for (var i=0; i< Cat.length; i++) {
+      $("#demo_"+Cat[i]).css("backgroundColor", "#FF9700");
+  }
+    $("#demo_"+category).css("backgroundColor", "#FA6400");
+  }
+
+  
 
   return (
     <div style={{width: "100%"}}>
@@ -534,22 +546,22 @@ function HomePage() {
 
         <div style={{ display:"table", margin: "0px auto" }}>
 
-          <div style={{ borderRadius: "10px", backgroundColor:"#FA6400", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+          <div id="demo_wakeup" onClick={()=>clickEvent("wakeup")} style={{ borderRadius: "10px", backgroundColor:"#FA6400", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
             <span style={{  }}>Wake up</span>
           </div>
-          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+          <div id="demo_travel" onClick={()=>clickEvent("travel")} style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
             <span style={{  }}>Travel</span>
           </div>
-          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+          <div id="demo_focus" onClick={()=>clickEvent("focus")} style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
             <span style={{  }}>Focus</span>
           </div>
-          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+          <div id="demo_destress" onClick={()=>clickEvent("destress")} style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
             <span style={{  }}>Destress</span>
           </div>
-          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+          <div id="demo_livewell" onClick={()=>clickEvent("livewell")} style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
             <span style={{  }}>Live Well</span>
           </div>
-          <div style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
+          <div id="demo_sleep" onClick={()=>clickEvent("sleep")} style={{ borderRadius: "10px", backgroundColor:"#FF9700", color:"white", padding:"5px", width:"100px", textAlign:"center", display:"inline-block", margin:"0px 10px", cursor:"pointer"}}>
             <span style={{  }}>Sleep</span>
           </div>
 
